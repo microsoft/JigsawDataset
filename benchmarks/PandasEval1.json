@@ -1,0 +1,2088 @@
+{
+  "0": {
+    "sets": {
+      "A": {
+        "queries": [
+          {
+            "query": "Retain rows from dataframe df1 where value of EPS is not equal to 89",
+            "user": "u0"
+          }
+        ],
+        "ios": [
+          {
+            "inputs": [
+              "pd.DataFrame({'STK_ID': {0: 601166.0, 1: 600036.0, 2: 600016.0, 3: 601009.0, 4: 601939.0, 5: 1.0}, 'RPT_Date': {0: 20111231.0, 1: 20111231.0, 2: 20111231.0, 3: 20111231.0, 4: 20111231.0, 5: 20111231.0}, 'STK_ID1': {0: 601166.0, 1: 600036.0, 2: 600016.0, 3: 601009.0, 4: 601939.0, 5: 1.0}, 'EPS': {0: 89.0, 1: 89.0, 2: 4.3, 3: 89.0, 4: 2.5, 5: 89.0}, 'cash': {0: 0.0, 1: 12.0, 2: 0.0, 3: 0.0, 4: 0.0, 5: 0.0}})"
+            ],
+            "output": "pd.DataFrame({'STK_ID': {2: 600016.0, 4: 601939.0}, 'RPT_Date': {2: 20111231.0, 4: 20111231.0}, 'STK_ID1': {2: 600016.0, 4: 601939.0}, 'EPS': {2: 4.3, 4: 2.5}, 'cash': {2: 0.0, 4: 0.0}})",
+            "invars": [
+              "df1"
+            ],
+            "outvar": "dfout"
+          }
+        ],
+        "solutions": [
+          [
+            "dfout = df1[(df1['EPS'] != 89)]"
+          ]
+        ]
+      }
+    }
+  },
+  "1": {
+    "sets": {
+      "A": {
+        "queries": [
+          {
+            "query": "take first three rows in df1 and assign it to dfout",
+            "user": "u0"
+          }
+        ],
+        "ios": [
+          {
+            "inputs": [
+              "pd.DataFrame({'A': {0: 5, 1: 0, 2: 2, 3: 1, 4: 9, 5: -5, 6: 3}, 'B': {0: 2, 1: 4, 2: 6, 3: 1, 4: 1, 5: 7, 6: 3}})"
+            ],
+            "output": "pd.DataFrame({'A': {0: 5, 1: 0, 2: 2}, 'B': {0: 2, 1: 4, 2: 6}})",
+            "invars": [
+              "df1"
+            ],
+            "outvar": "dfout"
+          }
+        ],
+        "solutions": [
+          [
+            "dfout = df1[:3]"
+          ]
+        ]
+      }
+    }
+  },
+  "2": {
+    "sets": {
+      "A": {
+        "queries": [
+          {
+            "query": "Delete the rows of data frame 'df2' from 'df1' and assign the result back to 'df1'",
+            "user": "u0"
+          }
+        ],
+        "ios": [
+          {
+            "inputs": [
+              "pd.DataFrame({'C1': {0: 'E1', 1: 'E3'}, 'C2': {0: 'E2', 1: 'E4'}})",
+              "pd.DataFrame({'C1': {0: 'E1'}, 'C2': {0: 'E2'}})"
+            ],
+            "output": "pd.DataFrame({'C1': {1: 'E3'}, 'C2': {1: 'E4'}})",
+            "invars": [
+              "df1",
+              "df2"
+            ],
+            "outvar": "df1"
+          },
+          {
+            "inputs": [
+              "pd.DataFrame({'one': {0: 1, 1: 4, 2: 7, 3: 10}, 'two': {0: 2, 1: 5, 2: 8, 3: 11}, 'three': {0: 3, 1: 6, 2: 9, 3: 12}})",
+              "pd.DataFrame({'one': {0: 1, 1: 7}, 'two': {0: 2, 1: 8}, 'three': {0: 3, 1: 9}})"
+            ],
+            "output": "pd.DataFrame({'one': {0: 4, 1: 10}, 'two': {0: 5, 1: 11}, 'three': {0: 6, 1: 12}})",
+            "invars": [
+              "df1",
+              "df2"
+            ],
+            "outvar": "df1"
+          }
+        ],
+        "solutions": [
+          [
+            "df1 = df1.drop(df2.index)"
+          ]
+        ]
+      }
+    }
+  },
+  "3": {
+    "sets": {
+      "A": {
+        "queries": [
+          {
+            "query": "Given the dataframe df1 and replace all instances of 5 in column 'id' with 1005, column 'idnew' with -1005 and assign it to dfout",
+            "user": "u0"
+          }
+        ],
+        "ios": [
+          {
+            "inputs": [
+              "pd.DataFrame({'id': {0: 5, 1: -45, 2: 16, 3: -1, 4: 111}, 'idnew': {0: 15, 1: 18, 2: 16, 3: -111, 4: 5}, 'A': {0: 'a', 1: 'x', 2: 'r', 3: 'uprime', 4: 'None'}, 'B': {0: 'z', 1: 'None', 2: 'x', 3: 'wwww', 4: 'xy'}})"
+            ],
+            "output": "pd.DataFrame({'id': {0: 1005, 1: -45, 2: 16, 3: -1, 4: 111}, 'idnew': {0: 15, 1: 18, 2: 16, 3: -111, 4: -1005}, 'A': {0: 'a', 1: 'x', 2: 'r', 3: 'uprime', 4: 'None'}, 'B': {0: 'z', 1: 'None', 2: 'x', 3: 'wwww', 4: 'xy'}})",
+            "invars": [
+              "df1"
+            ],
+            "outvar": "dfout"
+          }
+        ],
+        "solutions": [
+          [
+            "dfout = df1.replace(to_replace={\n    'id': {\n        5: 1005,\n    },\n    'idnew': {\n        5: (- 1005),\n    },\n}, method='ffill')",
+            "dfout = df1.replace(to_replace={\n    'id': {\n        5: 1005,\n    },\n    'idnew': {\n        5: (- 1005),\n    },\n})",
+            "dfout = df1.replace(to_replace={\n    'id': {\n        5: 1005,\n    },\n    'idnew': {\n        5: (- 1005),\n    },\n}, method='pad')",
+            "dfout = df1.replace(to_replace={\n    'id': {\n        5: 1005,\n    },\n    'idnew': {\n        5: (- 1005),\n    },\n}, method='bfill')"
+          ]
+        ]
+      }
+    }
+  },
+  "4": {
+    "sets": {
+      "A": {
+        "queries": [
+          {
+            "query": "Delete the rows of data frame 'df2' from 'df1' and assign the result back to 'df2'",
+            "user": "u0"
+          }
+        ],
+        "ios": [
+          {
+            "inputs": [
+              "pd.DataFrame({'C1': {0: 'E1', 1: 'E3'}, 'C2': {0: 'E2', 1: 'E4'}})",
+              "pd.DataFrame({'C1': {0: 'E1'}, 'C2': {0: 'E2'}})"
+            ],
+            "output": "pd.DataFrame({'C1': {1: 'E3'}, 'C2': {1: 'E4'}})",
+            "invars": [
+              "df1",
+              "df2"
+            ],
+            "outvar": "df2"
+          },
+          {
+            "inputs": [
+              "pd.DataFrame({'one': {0: 1, 1: 4, 2: 7, 3: 10}, 'two': {0: 2, 1: 5, 2: 8, 3: 11}, 'three': {0: 3, 1: 6, 2: 9, 3: 12}})",
+              "pd.DataFrame({'one': {0: 1, 1: 7}, 'two': {0: 2, 1: 8}, 'three': {0: 3, 1: 9}})"
+            ],
+            "output": "pd.DataFrame({'one': {0: 4, 1: 10}, 'two': {0: 5, 1: 11}, 'three': {0: 6, 1: 12}})",
+            "invars": [
+              "df1",
+              "df2"
+            ],
+            "outvar": "df2"
+          }
+        ],
+        "solutions": [
+          [
+            "df2 = df1.drop(labels=[0], errors='ignore')",
+            "df2 = df1.drop(df2.index)",
+            "df2 = df1.drop(labels=[0])"
+          ]
+        ]
+      }
+    }
+  },
+  "5": {
+    "sets": {
+      "A": {
+        "queries": [
+          {
+            "query": "Drop rows from dataframe df1 where value of EPS is equal to 89",
+            "user": "u0"
+          }
+        ],
+        "ios": [
+          {
+            "inputs": [
+              "pd.DataFrame({'STK_ID': {0: 601166.0, 1: 600036.0, 2: 600016.0, 3: 601009.0, 4: 601939.0, 5: 1.0}, 'RPT_Date': {0: 20111231.0, 1: 20111231.0, 2: 20111231.0, 3: 20111231.0, 4: 20111231.0, 5: 20111231.0}, 'STK_ID1': {0: 601166.0, 1: 600036.0, 2: 600016.0, 3: 601009.0, 4: 601939.0, 5: 1.0}, 'EPS': {0: 89.0, 1: 89.0, 2: 4.3, 3: 89.0, 4: 2.5, 5: 89.0}, 'cash': {0: 0.0, 1: 12.0, 2: 0.0, 3: 0.0, 4: 0.0, 5: 0.0}})"
+            ],
+            "output": "pd.DataFrame({'STK_ID': {2: 600016.0, 4: 601939.0}, 'RPT_Date': {2: 20111231.0, 4: 20111231.0}, 'STK_ID1': {2: 600016.0, 4: 601939.0}, 'EPS': {2: 4.3, 4: 2.5}, 'cash': {2: 0.0, 4: 0.0}})",
+            "invars": [
+              "df1"
+            ],
+            "outvar": "dfout"
+          },
+          {
+            "inputs": [
+              "pd.DataFrame({'a': {0: 1.0, 1: 3.0, 2: 89.0, 3: -1.0, 4: -2.0}, 'EPS': {0: 2.0, 1: 89.0, 2: 5.0, 3: -1.0, 4: -2.0}})"
+            ],
+            "output": "pd.DataFrame({'a': {0: 1.0, 1: 89.0, 2: -1.0, 3: -2.0}, 'EPS': {0: 2.0, 1: 5.0, 2: -1.0, 3: -2.0}})",
+            "invars": [
+              "df1"
+            ],
+            "outvar": "dfout"
+          }
+        ],
+        "solutions": [
+          [
+            "dfout = df1[(df1['EPS'] != 89)]"
+          ]
+        ]
+      }
+    }
+  },
+  "6": {
+    "sets": {
+      "A": {
+        "queries": [
+          {
+            "query": "Apply min-max normalization on df1 and assign the result to dfout",
+            "user": "u0"
+          }
+        ],
+        "ios": [
+          {
+            "inputs": [
+              "pd.DataFrame({'C1': {0: 10, 1: 10, 2: 20, 3: 20}, 'C2': {0: 15, 1: 15, 2: 20, 3: 20}})"
+            ],
+            "output": "pd.DataFrame({'C1': {0: 0.0, 1: 0.0, 2: 1.0, 3: 1.0}, 'C2': {0: 0.0, 1: 0.0, 2: 1.0, 3: 1.0}})",
+            "invars": [
+              "df1"
+            ],
+            "outvar": "dfout"
+          }
+        ],
+        "solutions": [
+          [
+            "dfout = df1.apply((lambda x: ((x - min(x)) / (max(x) - min(x)))))"
+          ]
+        ]
+      }
+    }
+  },
+  "7": {
+    "sets": {
+      "A": {
+        "queries": [
+          {
+            "query": "Apply mean normalization on the columns of df1 and store the result in dfout",
+            "user": "u0"
+          }
+        ],
+        "ios": [
+          {
+            "inputs": [
+              "pd.DataFrame({'C1': {0: 10, 1: 20}, 'C2': {0: 15, 1: 25}})"
+            ],
+            "output": "pd.DataFrame({'C1': {0: -0.707107, 1: 0.707107}, 'C2': {0: -0.707107, 1: 0.707107}})",
+            "invars": [
+              "df1"
+            ],
+            "outvar": "dfout"
+          }
+        ],
+        "solutions": [
+          [
+            "dfout = ((df1 - df1.mean()) / df1.std())"
+          ]
+        ]
+      }
+    }
+  },
+  "8": {
+    "sets": {
+      "A": {
+        "queries": [
+          {
+            "query": "Select the third value in the STID column of mydata and store it in val",
+            "user": "u0"
+          }
+        ],
+        "ios": [
+          {
+            "inputs": [
+              "pd.DataFrame({'STID': {'a': 1.0, 'b': 2.0, 'c': 3.0, 'd': None}, 'key': {'a': 1, 'b': 3, 'c': 4, 'd': 7}})"
+            ],
+            "output": "3.0",
+            "invars": [
+              "mydata"
+            ],
+            "outvar": "val"
+          }
+        ],
+        "solutions": [
+          [
+            "val = mydata['STID'][2]",
+            "val = mydata.iloc[(2, 0)]"
+          ]
+        ]
+      }
+    }
+  },
+  "9": {
+    "sets": {
+      "A": {
+        "queries": [
+          {
+            "query": "Create a new column 'C' in df1 as the sum of the columns 'A' and 'B'",
+            "user": "u0"
+          }
+        ],
+        "ios": [
+          {
+            "inputs": [
+              "pd.DataFrame({'A': {0: 5.0, 1: 0.0, 2: 2.0, 3: 1.0, 4: 9.0, 5: -5.0, 6: 3.0}, 'B': {0: 2.0, 1: 4.0, 2: 6.0, 3: 1.0, 4: 1.0, 5: 7.0, 6: 3.0}})"
+            ],
+            "output": "pd.DataFrame({'A': {0: 5.0, 1: 0.0, 2: 2.0, 3: 1.0, 4: 9.0, 5: -5.0, 6: 3.0}, 'B': {0: 2.0, 1: 4.0, 2: 6.0, 3: 1.0, 4: 1.0, 5: 7.0, 6: 3.0}, 'C': {0: 7.0, 1: 4.0, 2: 8.0, 3: 2.0, 4: 10.0, 5: 2.0, 6: 6.0}})",
+            "invars": [
+              "df1"
+            ],
+            "outvar": "df1"
+          }
+        ],
+        "solutions": [
+          [
+            "df1['C'] = (df1['A'] + df1['B'])"
+          ]
+        ]
+      }
+    }
+  },
+  "10": {
+    "sets": {
+      "A": {
+        "queries": [
+          {
+            "query": "Select the first three rows of the second column of the mydata and store it in out",
+            "user": "u0"
+          }
+        ],
+        "ios": [
+          {
+            "inputs": [
+              "pd.DataFrame({'A': {0: 5, 1: 0, 2: 2, 3: 1, 4: 9, 5: -5, 6: 3}, 'B': {0: 2, 1: 4, 2: 6, 3: 1, 4: 1, 5: 7, 6: 3}})"
+            ],
+            "output": "_s = pd.Series([2, 4, 6])\n_s.name = \"B\"\n_s",
+            "invars": [
+              "mydata"
+            ],
+            "outvar": "out"
+          },
+          {
+            "inputs": [
+              "pd.DataFrame({'a': {0: 1.0, 1: 3.0, 2: 89.0, 3: -1.0, 4: -2.0}, 'EPS': {0: 2.0, 1: 89.0, 2: 5.0, 3: -1.0, 4: -2.0}})"
+            ],
+            "output": "pd.DataFrame({'EPS': {0: 2.0, 1: 89.0, 2: 5.0}})",
+            "invars": [
+              "mydata"
+            ],
+            "outvar": "out"
+          }
+        ],
+        "solutions": [
+          [
+            "out = mydata.iloc[:3, 1]"
+          ]
+        ]
+      }
+    }
+  },
+  "11": {
+    "sets": {
+      "A": {
+        "queries": [
+          {
+            "query": "Compute the fraction of non-zeros in the score column of the dataframe df1",
+            "user": "u0"
+          }
+        ],
+        "ios": [
+          {
+            "inputs": [
+              "pd.DataFrame({'score': {0: 1.0, 1: 2.5, 2: 3.0, 3: 0.0, 4: 0.0, 5: 0.1}, 'C2': {0: 'E2', 1: 'E4', 2: 'E1', 3: 'E5', 4: 'E6', 5: 'E7'}})"
+            ],
+            "output": "0.6666666666666666",
+            "invars": [
+              "df1"
+            ],
+            "outvar": "dfout"
+          }
+        ],
+        "solutions": [
+          [
+            "dfout = sum(df1.score != 0)/len(df1.score)"
+          ]
+        ]
+      }
+    }
+  },
+  "12": {
+    "sets": {
+      "A": {
+        "queries": [
+          {
+            "query": "List the unique values of 'C2'",
+            "user": "u0"
+          }
+        ],
+        "ios": [
+          {
+            "inputs": [
+              "pd.DataFrame({'score': {0: 1.0, 1: 2.5, 2: 44.0, 3: 3.0, 4: 0.0, 5: 1.3, 6: 7.0}, 'C2': {0: 'E2', 1: 'E4', 2: 'E1', 3: 'E1', 4: 'E5', 5: 'E6', 6: 'E2'}})"
+            ],
+            "output": "np.array(['E2', 'E4', 'E1', 'E5', 'E6'])",
+            "invars": [
+              "df1"
+            ],
+            "outvar": "dfout"
+          }
+        ],
+        "solutions": [
+          [
+            "dfout = df1.C2.unique()"
+          ]
+        ]
+      }
+    }
+  },
+  "13": {
+    "sets": {
+      "A": {
+        "queries": [
+          {
+            "query": "For each quarter find the subsidiary with top earnings value",
+            "user": "u0"
+          }
+        ],
+        "ios": [
+          {
+            "inputs": [
+              "pd.DataFrame({'Quarter': {1: 'Q1', 2: 'Q1', 3: 'Q2', 4: 'Q2'}, 'Subsidiary': {1: 'US', 2: 'Kenya', 3: 'US', 4: 'India'}, 'Earnings': {1: 600, 2: 200, 3: 150, 4: 200}})"
+            ],
+            "output": "pd.DataFrame({'Quarter': {1: 'Q1', 4: 'Q2'}, 'Subsidiary': {1: 'US', 4: 'India'}, 'Earnings': {1: 600, 4: 200}})",
+            "invars": [
+              "df1"
+            ],
+            "outvar": "dfout"
+          }
+        ],
+        "solutions": [
+          [
+            "dfout = df1.loc[df1.groupby('Quarter')['Earnings'].idxmax()]"
+          ]
+        ]
+      }
+    }
+  },
+  "14": {
+    "sets": {
+      "A": {
+        "queries": [
+          {
+            "query": "Set the  column 'industry' of dataframe df1 to a value 5",
+            "user": "u0"
+          }
+        ],
+        "ios": [
+          {
+            "inputs": [
+              "pd.DataFrame({'issueid': {0: 1, 1: 2, 2: 3, 3: 4, 4: 5}, 'industry': {0: 1, 1: 2, 2: 3, 3: 4, 4: 5}})"
+            ],
+            "output": "pd.DataFrame({'issueid': {0: 1, 1: 2, 2: 3, 3: 4, 4: 5}, 'industry': {0: 5, 1: 5, 2: 5, 3: 5, 4: 5}})",
+            "invars": [
+              "df1"
+            ],
+            "outvar": "df1"
+          }
+        ],
+        "solutions": [
+          [
+            "df1['industry'] = 5"
+          ]
+        ]
+      }
+    }
+  },
+  "15": {
+    "sets": {
+      "A": {
+        "queries": [
+          {
+            "query": "Sort the rows by column 'B' in descending order in df1 and assign it to dfout",
+            "user": "u0"
+          }
+        ],
+        "ios": [
+          {
+            "inputs": [
+              "pd.DataFrame({'A': {0: 5, 1: 0, 2: 2, 3: 1, 4: 9, 5: -5, 6: 3}, 'B': {0: 2, 1: 4, 2: 6, 3: 1, 4: 1, 5: 7, 6: 3}})"
+            ],
+            "output": "pd.DataFrame({'A': {5: -5, 2: 2, 1: 0, 6: 3, 0: 5, 3: 1, 4: 9}, 'B': {5: 7, 2: 6, 1: 4, 6: 3, 0: 2, 3: 1, 4: 1}})",
+            "invars": [
+              "df1"
+            ],
+            "outvar": "dfout"
+          }
+        ],
+        "solutions": [
+          [
+            "dfout = df1.sort_values(by='B', ascending=False).copy()"
+          ]
+        ]
+      }
+    }
+  },
+  "16": {
+    "sets": {
+      "A": {
+        "queries": [
+          {
+            "query": "Rename the 'key' column of the dataframe df1 to 'KEY' and return it to dfout",
+            "user": "u0"
+          }
+        ],
+        "ios": [
+          {
+            "inputs": [
+              "pd.DataFrame({'STID': {'a': 1.0, 'b': 2.0, 'c': 3.0, 'd': None}, 'key': {'a': 1, 'b': 3, 'c': 4, 'd': 7}})"
+            ],
+            "output": "pd.DataFrame({'STID': {'a': 1.0, 'b': 2.0, 'c': 3.0, 'd': None}, 'KEY': {'a': 1, 'b': 3, 'c': 4, 'd': 7}})",
+            "invars": [
+              "df1"
+            ],
+            "outvar": "dfout"
+          }
+        ],
+        "solutions": [
+          [
+            "dfout = df1.rename(columns={\n    'key': 'KEY',\n})"
+          ]
+        ]
+      }
+    }
+  },
+  "17": {
+    "sets": {
+      "A": {
+        "queries": [
+          {
+            "query": "put first two row of df1 in dfout",
+            "user": "u0"
+          }
+        ],
+        "ios": [
+          {
+            "inputs": [
+              "pd.DataFrame({'STID': {'a': 1.0, 'b': 2.0, 'c': 3.0, 'd': None}, 'key': {'a': 1, 'b': 3, 'c': 4, 'd': 7}})"
+            ],
+            "output": "pd.DataFrame({'STID': {'a': 1.0, 'b': 2.0}, 'key': {'a': 1, 'b': 3}})",
+            "invars": [
+              "df1"
+            ],
+            "outvar": "dfout"
+          }
+        ],
+        "solutions": [
+          [
+            "dfout = df1[:2]"
+          ]
+        ]
+      }
+    }
+  },
+  "18": {
+    "sets": {
+      "A": {
+        "queries": [
+          {
+            "query": "put third row of df1 in dfout",
+            "user": "u0"
+          }
+        ],
+        "ios": [
+          {
+            "inputs": [
+              "pd.DataFrame({'STID': {'a': 1.0, 'b': 2.0, 'c': 3.0, 'd': None}, 'key': {'a': 1, 'b': 3, 'c': 4, 'd': 7}})"
+            ],
+            "output": "pd.DataFrame({'STID': {'c': 3.0}, 'key': {'c': 4}})",
+            "invars": [
+              "df1"
+            ],
+            "outvar": "dfout"
+          }
+        ],
+        "solutions": [
+          [
+            "dfout = df1[2:3]"
+          ]
+        ]
+      }
+    }
+  },
+  "19": {
+    "sets": {
+      "A": {
+        "queries": [
+          {
+            "query": "put first and third row of df1 in dfout",
+            "user": "u0"
+          }
+        ],
+        "ios": [
+          {
+            "inputs": [
+              "pd.DataFrame({'STID': {'a': 1.0, 'b': 2.0, 'c': 3.0, 'd': None}, 'key': {'a': 1, 'b': 3, 'c': 4, 'd': 7}})"
+            ],
+            "output": "pd.DataFrame({'STID': {'a': 1.0, 'c': 3.0}, 'key': {'a': 1, 'c': 4}})",
+            "invars": [
+              "df1"
+            ],
+            "outvar": "dfout"
+          },
+          {
+            "inputs": [
+              "pd.DataFrame({'a': {0: 1.0, 1: 3.0, 2: 89.0, 3: -1.0, 4: -2.0}, 'EPS': {0: 2.0, 1: 89.0, 2: 5.0, 3: -1.0, 4: -2.0}})"
+            ],
+            "output": "pd.DataFrame({'a': {0: 1.0, 1: 89.0}, 'EPS': {0: 2.0, 1: 5.0}})",
+            "invars": [
+              "df1"
+            ],
+            "outvar": "dfout"
+          }
+        ],
+        "solutions": [
+          [
+            "dfout = df1.loc[['a','c']]"
+          ]
+        ]
+      }
+    }
+  },
+  "20": {
+    "sets": {
+      "A": {
+        "queries": [
+          {
+            "query": "Remove last three rows from df1 and assign it to dfout",
+            "user": "u0"
+          }
+        ],
+        "ios": [
+          {
+            "inputs": [
+              "pd.DataFrame({'A': {0: 5, 1: 0, 2: 2, 3: 1, 4: 9, 5: -5, 6: 3}, 'B': {0: 2, 1: 4, 2: 6, 3: 1, 4: 1, 5: 7, 6: 3}})"
+            ],
+            "output": "pd.DataFrame({'A': {0: 5, 1: 0, 2: 2, 3: 1}, 'B': {0: 2, 1: 4, 2: 6, 3: 1}})",
+            "invars": [
+              "df1"
+            ],
+            "outvar": "dfout"
+          },
+          {
+            "inputs": [
+              "pd.DataFrame({'a': {0: 1.0, 1: 1.0, 2: 3.0, 3: 3.0, 4: 89.0, 5: -1.0, 6: -2.0, 7: -1.0, 8: -2.0}, 'EPS': {0: 1.0, 1: 2.0, 2: 89.0, 3: 90.0, 4: 5.0, 5: -1.0, 6: -2.0, 7: -1.0, 8: -2.0}})"
+            ],
+            "output": "pd.DataFrame({'a': {0: 1.0, 1: 1.0, 2: 3.0, 3: 3.0, 4: 89.0, 5: -1.0}, 'EPS': {0: 1.0, 1: 2.0, 2: 89.0, 3: 90.0, 4: 5.0, 5: -1.0}})",
+            "invars": [
+              "df1"
+            ],
+            "outvar": "dfout"
+          }
+        ],
+        "solutions": [
+          [
+            "dfout = df1.drop(labels=[4, 5, 6], errors='ignore')",
+            "dfout = df1.head(len(df1)-3)",
+            "dfout = df1.drop(labels=[4, 5, 6])"
+          ]
+        ]
+      }
+    }
+  },
+  "21": {
+    "sets": {
+      "A": {
+        "queries": [
+          {
+            "query": "take last three rows in df1 and assign it to dfout",
+            "user": "u0"
+          }
+        ],
+        "ios": [
+          {
+            "inputs": [
+              "pd.DataFrame({'A': {0: 5, 1: 0, 2: 2, 3: 1, 4: 9, 5: -5, 6: 3}, 'B': {0: 2, 1: 4, 2: 6, 3: 1, 4: 1, 5: 7, 6: 3}})"
+            ],
+            "output": "pd.DataFrame({'A': {4: 9, 5: -5, 6: 3}, 'B': {4: 1, 5: 7, 6: 3}})",
+            "invars": [
+              "df1"
+            ],
+            "outvar": "dfout"
+          }
+        ],
+        "solutions": [
+          [
+            "dfout = df1[(- 3):]"
+          ]
+        ]
+      }
+    }
+  },
+  "22": {
+    "sets": {
+      "A": {
+        "queries": [
+          {
+            "query": "count the number of null values in df1 and return it to dfout",
+            "user": "u0"
+          }
+        ],
+        "ios": [
+          {
+            "inputs": [
+              "pd.DataFrame({'STID': {'a': 1.0, 'b': 2.0, 'c': 3.0, 'd': None}, 'key': {'a': 1, 'b': 3, 'c': 4, 'd': 7}})"
+            ],
+            "output": "1",
+            "invars": [
+              "df1"
+            ],
+            "outvar": "dfout"
+          }
+        ],
+        "solutions": [
+          [
+            "dfout = df1.isnull().sum().sum()"
+          ]
+        ]
+      }
+    }
+  },
+  "23": {
+    "sets": {
+      "A": {
+        "queries": [
+          {
+            "query": "drop rows with null values in df1 and return it to dfout",
+            "user": "u0"
+          }
+        ],
+        "ios": [
+          {
+            "inputs": [
+              "pd.DataFrame({'STID': {'a': 1.0, 'b': 2.0, 'c': 3.0, 'd': None}, 'key': {'a': 1, 'b': 3, 'c': 4, 'd': 7}})"
+            ],
+            "output": "pd.DataFrame({'STID': {'a': 1.0, 'b': 2.0, 'c': 3.0}, 'key': {'a': 1, 'b': 3, 'c': 4}})",
+            "invars": [
+              "df1"
+            ],
+            "outvar": "dfout"
+          }
+        ],
+        "solutions": [
+          [
+            "dfout = df1.dropna()"
+          ]
+        ]
+      }
+    }
+  },
+  "24": {
+    "sets": {
+      "A": {
+        "queries": [
+          {
+            "query": "replace null values in df1 with 4.0 and return it to dfout",
+            "user": "u0"
+          }
+        ],
+        "ios": [
+          {
+            "inputs": [
+              "pd.DataFrame({'STID': {'a': 1.0, 'b': 2.0, 'c': 3.0, 'd': None}, 'key': {'a': 1, 'b': 3, 'c': 4, 'd': 7}})"
+            ],
+            "output": "pd.DataFrame({'STID': {'a': 1.0, 'b': 2.0, 'c': 3.0, 'd': 4.0}, 'key': {'a': 1, 'b': 3, 'c': 4, 'd': 7}})",
+            "invars": [
+              "df1"
+            ],
+            "outvar": "dfout"
+          }
+        ],
+        "solutions": [
+          [
+            "dfout = df1.fillna(4.0)",
+            "dfout = df1.replace(np.nan, 4.0)"
+          ]
+        ]
+      }
+    }
+  },
+  "25": {
+    "sets": {
+      "A": {
+        "queries": [
+          {
+            "query": "replace null values in df1 with mean of the column and return it to dfout",
+            "user": "u0"
+          }
+        ],
+        "ios": [
+          {
+            "inputs": [
+              "pd.DataFrame({'STID': {'a': 1.0, 'b': 2.0, 'c': 3.0, 'd': None}, 'key': {'a': 1.0, 'b': None, 'c': 4.0, 'd': 7.0}})"
+            ],
+            "output": "pd.DataFrame({'STID': {'a': 1.0, 'b': 2.0, 'c': 3.0, 'd': 2.0}, 'key': {'a': 1.0, 'b': 4.0, 'c': 4.0, 'd': 7.0}})",
+            "invars": [
+              "df1"
+            ],
+            "outvar": "dfout"
+          }
+        ],
+        "solutions": [
+          [
+            "dfout = df1.replace(np.nan, df1.mean())",
+            "dfout = df1.fillna(df1.mean())"
+          ]
+        ]
+      }
+    }
+  },
+  "26": {
+    "sets": {
+      "A": {
+        "queries": [
+          {
+            "query": "find mean and median of columns in df1 and save it to dfout",
+            "user": "u0"
+          }
+        ],
+        "ios": [
+          {
+            "inputs": [
+              "pd.DataFrame({'A': {0: 5, 1: 0, 2: 2, 3: 1, 4: 9, 5: -5, 6: 3}, 'B': {0: 2, 1: 4, 2: 6, 3: 1, 4: 1, 5: 7, 6: 3}})"
+            ],
+            "output": "pd.DataFrame({'A': {0: 2.142857142857143, 1: 2.0}, 'B': {0: 3.4285714285714284, 1: 3.0}})",
+            "invars": [
+              "df1"
+            ],
+            "outvar": "dfout"
+          }
+        ],
+        "solutions": [
+          [
+            "dfout = pd.DataFrame([df1.mean(), df1.median()])"
+          ]
+        ]
+      }
+    }
+  },
+  "27": {
+    "sets": {
+      "A": {
+        "queries": [
+          {
+            "query": "Filter rows where there is more than one NaN.",
+            "user": "u0"
+          }
+        ],
+        "ios": [
+          {
+            "inputs": [
+              "pd.DataFrame({'Score1': {0: 100.0, 1: 90.0, 2: None, 3: 95.0}, 'Score2': {0: 30.0, 1: None, 2: 45.0, 3: 56.0}, 'Score3': {0: 52, 1: 40, 2: 80, 3: 98}, 'Score4': {0: None, 1: None, 2: None, 3: 65.0}})"
+            ],
+            "output": "pd.DataFrame({'Score1': {1: 90.0, 2: None}, 'Score2': {1: None, 2: 45.0}, 'Score3': {1: 40, 2: 80}, 'Score4': {1: None, 2: None}})",
+            "invars": [
+              "df1"
+            ],
+            "outvar": "dfout"
+          },
+          {
+            "inputs": [
+              "pd.DataFrame({'a': {0: None, 1: 3.0, 2: 89.0, 3: None, 4: -2.0, 5: -1.0, 6: None}, 'EPS': {0: 2.0, 1: 89.0, 2: 5.0, 3: None, 4: -2.0, 5: -1.0, 6: None}})"
+            ],
+            "output": "pd.DataFrame({'a': {0: None, 1: None}, 'EPS': {0: None, 1: None}})",
+            "invars": [
+              "df1"
+            ],
+            "outvar": "dfout"
+          }
+        ],
+        "solutions": [
+          [
+            "dfout = df1.loc[(df1.isnull().sum(axis=1) > 1), :]"
+          ]
+        ]
+      }
+    }
+  },
+  "28": {
+    "sets": {
+      "A": {
+        "queries": [
+          {
+            "query": "Set 'A' as 5 in 6th row of df1",
+            "user": "u0"
+          }
+        ],
+        "ios": [
+          {
+            "inputs": [
+              "pd.DataFrame({'A': {0: 5, 1: 0, 2: 2, 3: 1, 4: 9, 5: -5, 6: 3}, 'B': {0: 2, 1: 4, 2: 6, 3: 1, 4: 1, 5: 7, 6: 3}})"
+            ],
+            "output": "pd.DataFrame({'A': {0: 5, 1: 0, 2: 2, 3: 1, 4: 9, 5: 5, 6: 3}, 'B': {0: 2, 1: 4, 2: 6, 3: 1, 4: 1, 5: 7, 6: 3}})",
+            "invars": [
+              "df1"
+            ],
+            "outvar": "dfout"
+          }
+        ],
+        "solutions": [
+          "df1.loc[5, 'A'] = 5"
+        ]
+      }
+    }
+  },
+  "29": {
+    "sets": {
+      "A": {
+        "queries": [
+          {
+            "query": "Remove rows with null values from df1 and return it to dfout",
+            "user": "u0"
+          }
+        ],
+        "ios": [
+          {
+            "inputs": [
+              "pd.DataFrame({'STID': {'a': 1.0, 'b': 2.0, 'c': 3.0, 'd': None}, 'key': {'a': 1, 'b': 3, 'c': 4, 'd': 7}})"
+            ],
+            "output": "pd.DataFrame({'STID': {'a': 1.0, 'b': 2.0, 'c': 3.0}, 'key': {'a': 1, 'b': 3, 'c': 4}})",
+            "invars": [
+              "df1"
+            ],
+            "outvar": "dfout"
+          }
+        ],
+        "solutions": [
+          [
+            "dfout = df1.dropna()"
+          ]
+        ]
+      }
+    }
+  },
+  "30": {
+    "sets": {
+      "A": {
+        "queries": [
+          {
+            "query": "Concatenate two data frames and drop duplicates",
+            "user": "u0"
+          }
+        ],
+        "ios": [
+          {
+            "inputs": [
+              "pd.DataFrame({'A': {0: 1, 1: 3}, 'B': {0: 2, 1: 1}})",
+              "pd.DataFrame({'A': {0: 5, 1: 3}, 'B': {0: 6, 1: 1}})"
+            ],
+            "output": "pd.DataFrame({'A': {0: 1, 1: 3, 2: 5}, 'B': {0: 2, 1: 1, 2: 6}})",
+            "invars": [
+              "df1",
+              "df2"
+            ],
+            "outvar": "dfout"
+          }
+        ],
+        "solutions": [
+          [
+            "dfout = pd.concat([df1, df2]).drop_duplicates().reset_index(drop=True)"
+          ]
+        ]
+      }
+    }
+  },
+  "31": {
+    "sets": {
+      "A": {
+        "queries": [
+          {
+            "query": "Drop duplicates from dataframe and reindex.",
+            "user": "u0"
+          }
+        ],
+        "ios": [
+          {
+            "inputs": [
+              "pd.DataFrame({'A': {0: 1, 1: 3, 2: 5, 3: 3}, 'B': {0: 2, 1: 1, 2: 6, 3: 1}})"
+            ],
+            "output": "pd.DataFrame({'A': {0: 1, 1: 3, 2: 5}, 'B': {0: 2, 1: 1, 2: 6}})",
+            "invars": [
+              "df1"
+            ],
+            "outvar": "dfout"
+          }
+        ],
+        "solutions": [
+          [
+            "dfout = df1.drop_duplicates(keep='first')",
+            "dfout = df1.drop_duplicates(keep='first').reindex(columns=['A', 'B'])"
+          ]
+        ]
+      }
+    }
+  },
+  "32": {
+    "sets": {
+      "A": {
+        "queries": [
+          {
+            "query": "Transpose the dataframe",
+            "user": "u0"
+          }
+        ],
+        "ios": [
+          {
+            "inputs": [
+              "pd.DataFrame({'A': {'a': 1, 'b': 2, 'c': 3}, 'B': {'a': 4, 'b': 5, 'c': 6}, 'C': {'a': 7, 'b': 8, 'c': 9}})"
+            ],
+            "output": "pd.DataFrame({'a': {'A': 1, 'B': 4, 'C': 7}, 'b': {'A': 2, 'B': 5, 'C': 8}, 'c': {'A': 3, 'B': 6, 'C': 9}})",
+            "invars": [
+              "df1"
+            ],
+            "outvar": "dfout"
+          }
+        ],
+        "solutions": [
+          [
+            "dfout = df1.T"
+          ]
+        ]
+      }
+    }
+  },
+  "33": {
+    "sets": {
+      "A": {
+        "queries": [
+          {
+            "query": "Select rows where location is 'a'",
+            "user": "u0"
+          }
+        ],
+        "ios": [
+          {
+            "inputs": [
+              "pd.DataFrame({'date': {0: 20130101, 1: 20130101, 2: 20130102}, 'location': {0: 'a', 1: 'a', 2: 'c'}})"
+            ],
+            "output": "pd.DataFrame({'date': {0: 20130101, 1: 20130101}, 'location': {0: 'a', 1: 'a'}})",
+            "invars": [
+              "df1"
+            ],
+            "outvar": "dfout"
+          }
+        ],
+        "solutions": [
+          [
+            "dfout = df1[(df1['location'] == 'a')]"
+          ]
+        ]
+      }
+    }
+  },
+  "34": {
+    "sets": {
+      "A": {
+        "queries": [
+          {
+            "query": "Filter the columns from dataframe where type equal to 'float64'",
+            "user": "u0"
+          }
+        ],
+        "ios": [
+          {
+            "inputs": [
+              "pd.DataFrame({0: {0: 1}, 1: {0: 'a'}, 2: {0: 2.0}})"
+            ],
+            "output": "pd.DataFrame({0: {0: 1}, 1: {0: 'a'}})",
+            "invars": [
+              "df1"
+            ],
+            "outvar": "dfout"
+          },
+          {
+            "inputs": [
+              "pd.DataFrame({'A': {0: 1.1, 1: 1.1, 2: 1.1}, 'B': {0: 2.3, 1: 5.0, 2: 5.0}, 'C': {0: 5.7, 1: 5.7, 2: 5.7}, 'D': {0: 0, 1: 0, 2: 100}, 'E': {0: 21, 1: 21, 2: 99}, 'F': {0: 55.0, 1: 55.0, 2: 105.5}, 'G': {0: '333', 1: '444', 2: '444'}})"
+            ],
+            "output": "pd.DataFrame({'D': {0: 0, 1: 0, 2: 100}, 'E': {0: 21, 1: 21, 2: 99}, 'G': {0: '333', 1: '444', 2: '444'}})",
+            "invars": [
+              "df1"
+            ],
+            "outvar": "dfout"
+          }
+        ],
+        "solutions": [
+          [
+            "dfout = df1.drop(labels=[2], axis=1)",
+            "dfout = df1.loc[:, df1.dtypes != 'float64']"
+          ]
+        ]
+      }
+    }
+  },
+  "35": {
+    "sets": {
+      "A": {
+        "queries": [
+          {
+            "query": "Check if all the values of column 'C1' in the dataframe contains values 1, 2 or 3.",
+            "user": "u0"
+          }
+        ],
+        "ios": [
+          {
+            "inputs": [
+              "pd.DataFrame({'C1': {0: 1, 1: 2, 2: 2, 3: 1, 4: 3}, 'C2': {0: 'E2', 1: 'E4', 2: 'E2', 3: 'E4', 4: 'E6'}})"
+            ],
+            "output": "_s = pd.Series([True, True, True, True, True])\n_s.name = \"C1\"\n_s",
+            "invars": [
+              "df1"
+            ],
+            "outvar": "dfout"
+          }
+        ],
+        "solutions": [
+          [
+            "dfout = df1.C1.isin(['1', '2', '3'])"
+          ]
+        ]
+      }
+    }
+  },
+  "36": {
+    "sets": {
+      "A": {
+        "queries": [
+          {
+            "query": "Convert the 'foo' column in the dataframe to numeric ignoring the errors.",
+            "user": "u0"
+          }
+        ],
+        "ios": [
+          {
+            "inputs": [
+              "pd.DataFrame({'foo': {0: '1', 1: '2.0', 2: '-', 3: '-', 4: '3.447'}})"
+            ],
+            "output": "pd.DataFrame({'foo': {0: 1.0, 1: 2.0, 2: None, 3: None, 4: 3.447}})",
+            "invars": [
+              "df1"
+            ],
+            "outvar": "df1"
+          }
+        ],
+        "solutions": [
+          [
+            "df1['foo'] = pd.to_numeric(df1['foo'], errors='coerce')"
+          ]
+        ]
+      }
+    }
+  },
+  "37": {
+    "sets": {
+      "A": {
+        "queries": [
+          {
+            "query": "Convert the 'foo' column in the dataframe to numeric",
+            "user": "u0"
+          }
+        ],
+        "ios": [
+          {
+            "inputs": [
+              "pd.DataFrame({'foo': {0: '1', 1: '2.0', 2: '-', 3: '-', 4: '3.447'}})"
+            ],
+            "output": "pd.DataFrame({'foo': {0: 1.0, 1: 2.0, 2: None, 3: None, 4: 3.447}})",
+            "invars": [
+              "df1"
+            ],
+            "outvar": "df1"
+          }
+        ],
+        "solutions": [
+          [
+            "df1['foo'] = pd.to_numeric(df1['foo'], errors='coerce')"
+          ]
+        ]
+      }
+    }
+  },
+  "38": {
+    "sets": {
+      "A": {
+        "queries": [
+          {
+            "query": "Move column 'deaths' to be the first column of df",
+            "user": "u0"
+          }
+        ],
+        "ios": [
+          {
+            "inputs": [
+              "pd.DataFrame({'name': {0: 'a', 1: 'b', 2: 'c', 3: 'd', 4: 'e'}, 'val': {0: 12, 1: 11, 2: 17, 3: 14, 4: 5}, 'deaths': {0: 45, 1: 92, 2: 22, 3: 39, 4: 79}, 'ix': {0: 2, 1: 3, 2: 2, 3: 2, 4: 4}})"
+            ],
+            "output": "pd.DataFrame({'deaths': {0: 45, 1: 92, 2: 22, 3: 39, 4: 79}, 'name': {0: 'a', 1: 'b', 2: 'c', 3: 'd', 4: 'e'}, 'val': {0: 12, 1: 11, 2: 17, 3: 14, 4: 5}, 'ix': {0: 2, 1: 3, 2: 2, 3: 2, 4: 4}})",
+            "invars": [
+              "df",
+              "x"
+            ],
+            "outvar": "df"
+          },
+          {
+            "inputs": [
+              "pd.DataFrame({'one': {0: 1, 1: 4, 2: 7, 3: 10}, 'two': {0: 2, 1: 5, 2: 8, 3: 11}, 'deaths': {0: 3, 1: 6, 2: 9, 3: 12}})"
+            ],
+            "output": "pd.DataFrame({'deaths': {0: 3, 1: 6, 2: 9, 3: 12}, 'one': {0: 1, 1: 4, 2: 7, 3: 10}, 'two': {0: 2, 1: 5, 2: 8, 3: 11}})",
+            "invars": [
+              "df",
+              "x"
+            ],
+            "outvar": "df"
+          }
+        ],
+        "solutions": [
+          "df = df[['deaths'] + [x for x in df.columns if x!='deaths']]\n"
+        ]
+      }
+    }
+  },
+  "39": {
+    "sets": {
+      "A": {
+        "queries": [
+          {
+            "query": "Convert column 'time' of df to pandas datetime",
+            "user": "u0"
+          }
+        ],
+        "ios": [
+          {
+            "inputs": [
+              "pd.DataFrame({'time': {0: '04:12:40', 1: '04:17:01', 2: '04:17:01', 3: '05:12:56', 4: '05:33:12', 5: '05:38:33', 6: '05:48:52', 7: '05:50:22', 8: '04:17:01'}, 'val': {0: 30, 1: 22, 2: 23, 3: 4, 4: 5, 5: 18, 6: 13, 7: 13, 8: 18}})"
+            ],
+            "output": "pd.DataFrame({'time': {0: pd.Timestamp('2021-09-03 04:12:40'), 1: pd.Timestamp('2021-09-03 04:17:01'), 2: pd.Timestamp('2021-09-03 04:17:01'), 3: pd.Timestamp('2021-09-03 05:12:56'), 4: pd.Timestamp('2021-09-03 05:33:12'), 5: pd.Timestamp('2021-09-03 05:38:33'), 6: pd.Timestamp('2021-09-03 05:48:52'), 7: pd.Timestamp('2021-09-03 05:50:22'), 8: pd.Timestamp('2021-09-03 04:17:01')}, 'val': {0: 30, 1: 22, 2: 23, 3: 4, 4: 5, 5: 18, 6: 13, 7: 13, 8: 18}})",
+            "invars": [
+              "df"
+            ],
+            "outvar": "df"
+          }
+        ],
+        "solutions": [
+          "df['time'] = pd.to_datetime(df['time'])\n"
+        ]
+      }
+    }
+  },
+  "40": {
+    "sets": {
+      "A": {
+        "queries": [
+          {
+            "query": "remove rows with duplicates occuring consecutively in column 'time' of dataframe df",
+            "user": "u0"
+          }
+        ],
+        "ios": [
+          {
+            "inputs": [
+              "pd.DataFrame({'time': {0: pd.Timestamp('2021-09-03 04:12:40'), 1: pd.Timestamp('2021-09-03 04:17:01'), 2: pd.Timestamp('2021-09-03 04:17:01'), 3: pd.Timestamp('2021-09-03 05:12:56'), 4: pd.Timestamp('2021-09-03 05:33:12'), 5: pd.Timestamp('2021-09-03 05:38:33'), 6: pd.Timestamp('2021-09-03 05:48:52'), 7: pd.Timestamp('2021-09-03 05:50:22'), 8: pd.Timestamp('2021-09-03 04:17:01')}, 'val': {0: 30, 1: 22, 2: 23, 3: 4, 4: 5, 5: 18, 6: 13, 7: 13, 8: 18}})"
+            ],
+            "output": "pd.DataFrame({'time': {0: pd.Timestamp('2021-09-03 04:12:40'), 1: pd.Timestamp('2021-09-03 04:17:01'), 3: pd.Timestamp('2021-09-03 05:12:56'), 4: pd.Timestamp('2021-09-03 05:33:12'), 5: pd.Timestamp('2021-09-03 05:38:33'), 6: pd.Timestamp('2021-09-03 05:48:52'), 7: pd.Timestamp('2021-09-03 05:50:22'), 8: pd.Timestamp('2021-09-03 04:17:01')}, 'val': {0: 30, 1: 22, 3: 4, 4: 5, 5: 18, 6: 13, 7: 13, 8: 18}})",
+            "invars": [
+              "df"
+            ],
+            "outvar": "dfout"
+          }
+        ],
+        "solutions": [
+          "dfout = df[df['time'].diff()!=pd.Timedelta(\"0\")]\n"
+        ]
+      }
+    }
+  },
+  "41": {
+    "sets": {
+      "A": {
+        "queries": [
+          {
+            "query": "drop rows logged at less than 10 minute 'time' interval in column df",
+            "user": "u0"
+          }
+        ],
+        "ios": [
+          {
+            "inputs": [
+              "pd.DataFrame({'time': {0: pd.Timestamp('2021-09-03 04:12:40'), 1: pd.Timestamp('2021-09-03 04:17:01'), 2: None, 3: pd.Timestamp('2021-09-03 05:12:56'), 4: pd.Timestamp('2021-09-03 05:33:12'), 5: pd.Timestamp('2021-09-03 05:38:33'), 6: pd.Timestamp('2021-09-03 05:48:52'), 7: pd.Timestamp('2021-09-03 05:50:22'), 8: pd.Timestamp('2021-09-03 04:17:01')}, 'val': {0: 30, 1: 22, 2: 23, 3: 4, 4: 5, 5: 18, 6: 13, 7: 13, 8: 18}})"
+            ],
+            "output": "pd.DataFrame({'time': {1: pd.Timestamp('2021-09-03 04:17:01'), 5: pd.Timestamp('2021-09-03 05:38:33'), 7: pd.Timestamp('2021-09-03 05:50:22'), 8: pd.Timestamp('2021-09-03 04:17:01')}, 'val': {1: 22, 5: 18, 7: 13, 8: 18}})",
+            "invars": [
+              "df"
+            ],
+            "outvar": "dfout"
+          },
+          {
+            "inputs": [
+              "pd.DataFrame({'time': {0: pd.Timestamp('2021-09-03 04:12:40'), 1: pd.Timestamp('2021-09-03 04:17:01'), 2: pd.Timestamp('2021-09-03 04:17:01'), 3: pd.Timestamp('2021-09-03 05:12:56'), 4: pd.Timestamp('2021-09-03 05:33:12'), 5: pd.Timestamp('2021-09-03 05:38:33'), 6: pd.Timestamp('2021-09-03 05:48:52'), 7: pd.Timestamp('2021-09-03 05:50:22'), 8: pd.Timestamp('2021-09-03 05:12:56'), 9: pd.Timestamp('2021-09-03 05:33:12'), 10: pd.Timestamp('2021-09-03 05:38:33'), 11: pd.Timestamp('2021-09-03 05:48:52'), 12: pd.Timestamp('2021-09-03 05:50:22'), 13: pd.Timestamp('2021-09-03 04:17:01')}, 'val': {0: 30, 1: 22, 2: 23, 3: 4, 4: 5, 5: 18, 6: 13, 7: 13, 8: 4, 9: 5, 10: 18, 11: 13, 12: 13, 13: 18}})"
+            ],
+            "output": "pd.DataFrame({'time': {1: pd.Timestamp('2021-09-03 04:17:01'), 2: pd.Timestamp('2021-09-03 04:17:01'), 5: pd.Timestamp('2021-09-03 05:38:33'), 7: pd.Timestamp('2021-09-03 05:50:22'), 8: pd.Timestamp('2021-09-03 05:12:56'), 10: pd.Timestamp('2021-09-03 05:38:33'), 12: pd.Timestamp('2021-09-03 05:50:22'), 13: pd.Timestamp('2021-09-03 04:17:01')}, 'val': {1: 22, 2: 23, 5: 18, 7: 13, 8: 4, 10: 18, 12: 13, 13: 18}})",
+            "invars": [
+              "df"
+            ],
+            "outvar": "dfout"
+          }
+        ],
+        "solutions": [
+          "dfout = df[df['time'].diff()<pd.Timedelta(\"00:10:00\")]\n"
+        ]
+      }
+    }
+  },
+  "42": {
+    "sets": {
+      "A": {
+        "queries": [
+          {
+            "query": "Group df1 on column 'b' and keep half of the elements at random",
+            "user": "u0"
+          }
+        ],
+        "ios": [
+          {
+            "inputs": [
+              "pd.DataFrame({'b': {0: 1, 1: 1, 2: 1, 3: 3, 4: 3, 5: 3, 6: 3, 7: 4, 8: 4, 9: 4, 10: 4}, 'c': {0: 4, 1: 7, 2: 5, 3: 3, 4: 1, 5: 9, 6: 11, 7: 12, 8: 15, 9: 4, 10: 9}})"
+            ],
+            "output": "_df = pd.DataFrame({'b': {(1, 0): 1, (1, 2): 1, (3, 5): 3, (3, 4): 3, (4, 9): 4, (4, 7): 4}, 'c': {(1, 0): 4, (1, 2): 5, (3, 5): 9, (3, 4): 1, (4, 9): 4, (4, 7): 12}})\n_df.index.names = ['b', None]\n_df",
+            "invars": [
+              "df1",
+              "x"
+            ],
+            "outvar": "dfout"
+          }
+        ],
+        "solutions": [
+          "dfout = df1.groupby('b').apply(lambda x : x.sample(frac=0.5))\n"
+        ]
+      }
+    }
+  },
+  "43": {
+    "sets": {
+      "A": {
+        "queries": [
+          {
+            "query": "In column 'X' of dataframe d replace value 15 with 1015 and -15 with -1015",
+            "user": "u0"
+          }
+        ],
+        "ios": [
+          {
+            "inputs": [
+              "pd.DataFrame({'X': {0: 5, 1: 10, 2: 15, 3: -15, 4: 15, 5: -10}, 'Y': {0: 12, 1: 15, 2: 2000, 3: 3000, 4: -2015, 5: 0}})"
+            ],
+            "output": "pd.DataFrame({'X': {0: 5, 1: 10, 2: 1015, 3: -1015, 4: 1015, 5: -10}, 'Y': {0: 12, 1: 15, 2: 2000, 3: 3000, 4: -2015, 5: 0}})",
+            "invars": [
+              "df"
+            ],
+            "outvar": "df"
+          }
+        ],
+        "solutions": [
+          "df = df.replace({'X':{15:1015, -15:-1015}})\n"
+        ]
+      }
+    }
+  },
+  "44": {
+    "sets": {
+      "A": {
+        "queries": [
+          {
+            "query": "Make columns of df1 same as that of df2",
+            "user": "u0"
+          }
+        ],
+        "ios": [
+          {
+            "inputs": [
+              "pd.DataFrame({'A': {0: 0, 1: 3, 2: 6}, 'B': {0: 1, 1: 4, 2: 7}, 'C': {0: 2, 1: 5, 2: 8}})",
+              "pd.DataFrame({'D': {0: 0, 1: 3}, 'E': {0: 1, 1: 4}, 'F': {0: 2, 1: 5}})"
+            ],
+            "output": "pd.DataFrame({'D': {0: 0, 1: 3, 2: 6}, 'E': {0: 1, 1: 4, 2: 7}, 'F': {0: 2, 1: 5, 2: 8}})",
+            "invars": [
+              "df1",
+              "df2"
+            ],
+            "outvar": "df1"
+          }
+        ],
+        "solutions": [
+          "df1.columns = df2.columns\n"
+        ]
+      }
+    }
+  },
+  "45": {
+    "sets": {
+      "A": {
+        "queries": [
+          {
+            "query": "Split values in column 'Name' of df by space and add to columns 'First Name' and 'Last Name'",
+            "user": "u0"
+          }
+        ],
+        "ios": [
+          {
+            "inputs": [
+              "pd.DataFrame({'Name': {0: 'ABC DEF', 1: 'ABX QRT', 2: 'DAV XXY', 3: 'FPM NOP', 4: 'QQS RDG', 5: 'GZT UVL'}, 'Marks': {0: 12, 1: 16, 2: 9, 3: 7, 4: 14, 5: 19}, 'Subject': {0: 'Chemistry', 1: 'Chemistry', 2: 'Physics', 3: 'Physics', 4: 'Chemistry', 5: 'Biology'}})"
+            ],
+            "output": "pd.DataFrame({'Name': {0: 'ABC DEF', 1: 'ABX QRT', 2: 'DAV XXY', 3: 'FPM NOP', 4: 'QQS RDG', 5: 'GZT UVL'}, 'Marks': {0: 12, 1: 16, 2: 9, 3: 7, 4: 14, 5: 19}, 'Subject': {0: 'Chemistry', 1: 'Chemistry', 2: 'Physics', 3: 'Physics', 4: 'Chemistry', 5: 'Biology'}, 'First Name': {0: 'ABC', 1: 'ABX', 2: 'DAV', 3: 'FPM', 4: 'QQS', 5: 'GZT'}, 'Last Name': {0: 'DEF', 1: 'QRT', 2: 'XXY', 3: 'NOP', 4: 'RDG', 5: 'UVL'}})",
+            "invars": [
+              "df"
+            ],
+            "outvar": "df"
+          }
+        ],
+        "solutions": [
+          "df['First Name'], df['Last Name'] = df['Name'].str.split(' ', 1).str\n"
+        ]
+      }
+    }
+  },
+  "46": {
+    "sets": {
+      "A": {
+        "queries": [
+          {
+            "query": "get all rows where 'Name' does not contain 'AB'",
+            "user": "u0"
+          }
+        ],
+        "ios": [
+          {
+            "inputs": [
+              "pd.DataFrame({'Name': {0: 'ABC DEF', 1: 'ABX QRT', 2: 'DAV XXY', 3: 'FPM NOP', 4: 'QQS RDG', 5: 'GZT UVL'}, 'Marks': {0: 12, 1: 16, 2: 9, 3: 7, 4: 14, 5: 19}, 'Subject': {0: 'Chemistry', 1: 'Chemistry', 2: 'Physics', 3: 'Physics', 4: 'Chemistry', 5: 'Biology'}})"
+            ],
+            "output": "pd.DataFrame({'Name': {2: 'DAV XXY', 3: 'FPM NOP', 4: 'QQS RDG', 5: 'GZT UVL'}, 'Marks': {2: 9, 3: 7, 4: 14, 5: 19}, 'Subject': {2: 'Physics', 3: 'Physics', 4: 'Chemistry', 5: 'Biology'}})",
+            "invars": [
+              "df"
+            ],
+            "outvar": "out"
+          }
+        ],
+        "solutions": [
+          "out = df[~df['Name'].str.contains('AB')]\n"
+        ]
+      }
+    }
+  },
+  "47": {
+    "sets": {
+      "A": {
+        "queries": [
+          {
+            "query": "find 'Marks' of students in 'Subject' Chemistry and Physics",
+            "user": "u0"
+          }
+        ],
+        "ios": [
+          {
+            "inputs": [
+              "pd.DataFrame({'Name': {0: 'ABC DEF', 1: 'ABX QRT', 2: 'DAV XXY', 3: 'FPM NOP', 4: 'QQS RDG', 5: 'GZT UVL'}, 'Marks': {0: 12, 1: 16, 2: 9, 3: 7, 4: 14, 5: 19}, 'Subject': {0: 'Chemistry', 1: 'Chemistry', 2: 'Physics', 3: 'Physics', 4: 'Chemistry', 5: 'Biology'}})"
+            ],
+            "output": "_s = pd.Series([12, 16, 9, 7, 14])\n_s.name = \"Marks\"\n_s",
+            "invars": [
+              "df"
+            ],
+            "outvar": "out"
+          }
+        ],
+        "solutions": [
+          "out = df.loc[df['Subject'].isin(['Chemistry', 'Physics']), 'Marks'] \n"
+        ]
+      }
+    }
+  },
+  "48": {
+    "sets": {
+      "A": {
+        "queries": [
+          {
+            "query": "add all columns in beta to alpha",
+            "user": "u0"
+          }
+        ],
+        "ios": [
+          {
+            "inputs": [
+              "pd.DataFrame({'A': {0: 0, 1: 3, 2: 6}, 'B': {0: 1, 1: 4, 2: 7}, 'C': {0: 2, 1: 5, 2: 8}})",
+              "pd.DataFrame({'D': {0: 0, 1: 3}, 'E': {0: 1, 1: 4}, 'F': {0: 2, 1: 5}})"
+            ],
+            "output": "pd.DataFrame({'A': {0: 0, 1: 3, 2: 6}, 'B': {0: 1, 1: 4, 2: 7}, 'C': {0: 2, 1: 5, 2: 8}, 'D': {0: 0.0, 1: 3.0, 2: None}, 'E': {0: 1.0, 1: 4.0, 2: None}, 'F': {0: 2.0, 1: 5.0, 2: None}})",
+            "invars": [
+              "alpha",
+              "beta"
+            ],
+            "outvar": "alpha"
+          }
+        ],
+        "solutions": [
+          "alpha = pd.concat([alpha, beta], 1)\n"
+        ]
+      }
+    }
+  },
+  "49": {
+    "sets": {
+      "A": {
+        "queries": [
+          {
+            "query": "for each student, get a list of scores obtained",
+            "user": "u0"
+          }
+        ],
+        "ios": [
+          {
+            "inputs": [
+              "pd.DataFrame({'student': {0: 'alpha', 1: 'beta', 2: 'alpha', 3: 'beta', 4: 'omega', 5: 'alpha'}, 'score': {0: 12, 1: 16, 2: 9, 3: 7, 4: 14, 5: 19}, 'subject': {0: 'chem', 1: 'chem', 2: 'phy', 3: 'phy', 4: 'chem', 5: 'bio'}})"
+            ],
+            "output": "_s = pd.Series([[12, 9, 19], [16, 7], [14]])\n_s.name = \"score\"\n_s.index.names = ['student']\n_s",
+            "invars": [
+              "df",
+              "list"
+            ],
+            "outvar": "out"
+          }
+        ],
+        "solutions": [
+          "out = df.groupby(['student'])['score'].apply(list)\n"
+        ]
+      }
+    }
+  },
+  "50": {
+    "sets": {
+      "A": {
+        "queries": [
+          {
+            "query": "for every 'student' find maximum 'score' in any 'subject'",
+            "user": "u0"
+          }
+        ],
+        "ios": [
+          {
+            "inputs": [
+              "pd.DataFrame({'student': {0: 'alpha', 1: 'beta', 2: 'alpha', 3: 'beta', 4: 'omega', 5: 'alpha'}, 'score': {0: 12, 1: 16, 2: 9, 3: 7, 4: 14, 5: 19}, 'subject': {0: 'chem', 1: 'chem', 2: 'phy', 3: 'phy', 4: 'chem', 5: 'bio'}})"
+            ],
+            "output": "_s = pd.Series([19, 16, 14])\n_s.name = \"score\"\n_s.index.names = ['student']\n_s",
+            "invars": [
+              "df"
+            ],
+            "outvar": "out"
+          }
+        ],
+        "solutions": [
+          "out = df.groupby('student')['score'].max()\n"
+        ]
+      }
+    }
+  },
+  "51": {
+    "sets": {
+      "A": {
+        "queries": [
+          {
+            "query": "reorder the columns so that they are sorted",
+            "user": "u0"
+          }
+        ],
+        "ios": [
+          {
+            "inputs": [
+              "pd.DataFrame({'B': {0: 0, 1: 4, 2: 8}, 'C': {0: 1, 1: 5, 2: 9}, 'D': {0: 2, 1: 6, 2: 10}, 'A': {0: 3, 1: 7, 2: 11}})"
+            ],
+            "output": "pd.DataFrame({'A': {0: 3, 1: 7, 2: 11}, 'B': {0: 0, 1: 4, 2: 8}, 'C': {0: 1, 1: 5, 2: 9}, 'D': {0: 2, 1: 6, 2: 10}})",
+            "invars": [
+              "df",
+              "list",
+              "sorted"
+            ],
+            "outvar": "df"
+          },
+          {
+            "inputs": [
+              "pd.DataFrame({'Z': {0: 0, 1: 5, 2: 10, 3: 15, 4: 20}, 'V': {0: 1, 1: 6, 2: 11, 3: 16, 4: 21}, 'A': {0: 2, 1: 7, 2: 12, 3: 17, 4: 22}, 'X': {0: 3, 1: 8, 2: 13, 3: 18, 4: 23}, 'M': {0: 4, 1: 9, 2: 14, 3: 19, 4: 24}})"
+            ],
+            "output": "pd.DataFrame({'A': {0: 2, 1: 7, 2: 12, 3: 17, 4: 22}, 'M': {0: 4, 1: 9, 2: 14, 3: 19, 4: 24}, 'V': {0: 1, 1: 6, 2: 11, 3: 16, 4: 21}, 'X': {0: 3, 1: 8, 2: 13, 3: 18, 4: 23}, 'Z': {0: 0, 1: 5, 2: 10, 3: 15, 4: 20}})",
+            "invars": [
+              "df",
+              "list",
+              "sorted"
+            ],
+            "outvar": "df"
+          }
+        ],
+        "solutions": [
+          "df = df[sorted(list(df.columns))]\n"
+        ]
+      }
+    }
+  },
+  "52": {
+    "sets": {
+      "A": {
+        "queries": [
+          {
+            "query": "remove rows whose indices are duplicated (keeping first)",
+            "user": "u0"
+          }
+        ],
+        "ios": [
+          {
+            "inputs": [
+              "pd.DataFrame([{'b': 1, 'c': 4}, {'b': 1, 'c': 7}, {'b': 1, 'c': 5}, {'b': 3, 'c': 3}, {'b': 3, 'c': 1}, {'b': 3, 'c': 9}, {'b': 3, 'c': 11}, {'b': 4, 'c': 12}, {'b': 4, 'c': 15}, {'b': 4, 'c': 4}, {'b': 4, 'c': 9}], index=[1, 1, 1, 2, 2, 3, 3, 4, 5, 6, 6])"
+            ],
+            "output": "pd.DataFrame({'b': {1: 1, 2: 3, 3: 3, 4: 4, 5: 4, 6: 4}, 'c': {1: 4, 2: 3, 3: 9, 4: 12, 5: 15, 6: 4}})",
+            "invars": [
+              "df"
+            ],
+            "outvar": "df"
+          }
+        ],
+        "solutions": [
+          "df = df[~df.index.duplicated(keep='first')]\n"
+        ]
+      }
+    }
+  },
+  "53": {
+    "sets": {
+      "A": {
+        "queries": [
+          {
+            "query": "convert index to a column",
+            "user": "u0"
+          }
+        ],
+        "ios": [
+          {
+            "inputs": [
+              "pd.DataFrame({'B': {0: 0, 1: 4, 2: 8}, 'C': {0: 1, 1: 5, 2: 9}, 'D': {0: 2, 1: 6, 2: 10}, 'A': {0: 3, 1: 7, 2: 11}})"
+            ],
+            "output": "pd.DataFrame({'B': {0: 0, 1: 4, 2: 8}, 'C': {0: 1, 1: 5, 2: 9}, 'D': {0: 2, 1: 6, 2: 10}, 'A': {0: 3, 1: 7, 2: 11}, 'index': {0: 0, 1: 1, 2: 2}})",
+            "invars": [
+              "df"
+            ],
+            "outvar": "df"
+          }
+        ],
+        "solutions": [
+          "df['index'] = df.index\n"
+        ]
+      }
+    }
+  },
+  "54": {
+    "sets": {
+      "A": {
+        "queries": [
+          {
+            "query": "For every row in df1, update 'common' column to True if value in column 'A' of df1 also lies in column 'B' of df2",
+            "user": "u0"
+          }
+        ],
+        "ios": [
+          {
+            "inputs": [
+              "pd.DataFrame({'A': {0: 2, 1: 3, 2: 9, 3: 42, 4: 13, 5: 55}, 'common': {0: False, 1: False, 2: False, 3: False, 4: False, 5: False}})",
+              "pd.DataFrame({'B': {0: 13, 1: 14, 2: 3, 3: 7, 4: 42, 5: 66, 6: 19, 7: 55}, 'common': {0: True, 1: True, 2: True, 3: True, 4: True, 5: True, 6: True, 7: True}})"
+            ],
+            "output": "pd.DataFrame({'A': {0: 2, 1: 3, 2: 9, 3: 42, 4: 13, 5: 55}, 'common': {0: False, 1: True, 2: False, 3: True, 4: True, 5: True}})",
+            "invars": [
+              "df1",
+              "df2"
+            ],
+            "outvar": "df1"
+          }
+        ],
+        "solutions": [
+          "df1.loc[df1.A.isin(df2.B),'common'] = True\n"
+        ]
+      }
+    }
+  },
+  "55": {
+    "sets": {
+      "A": {
+        "queries": [
+          {
+            "query": "make values in 'common' of df2 to False if value in column 'B' of df2 do not lie in column 'A' of df1",
+            "user": "u0"
+          }
+        ],
+        "ios": [
+          {
+            "inputs": [
+              "pd.DataFrame({'A': {0: 2, 1: 3, 2: 9, 3: 42, 4: 13, 5: 55}, 'common': {0: False, 1: False, 2: False, 3: False, 4: False, 5: False}})",
+              "pd.DataFrame({'B': {0: 13, 1: 14, 2: 3, 3: 7, 4: 42, 5: 66, 6: 19, 7: 55}, 'common': {0: True, 1: True, 2: True, 3: True, 4: True, 5: True, 6: True, 7: True}})"
+            ],
+            "output": "pd.DataFrame({'B': {0: 13, 1: 14, 2: 3, 3: 7, 4: 42, 5: 66, 6: 19, 7: 55}, 'common': {0: True, 1: False, 2: True, 3: False, 4: True, 5: False, 6: False, 7: True}})",
+            "invars": [
+              "df1",
+              "df2"
+            ],
+            "outvar": "df2"
+          }
+        ],
+        "solutions": [
+          "df2.loc[~df2.B.isin(df1.A),'common'] = False\n"
+        ]
+      }
+    }
+  },
+  "56": {
+    "sets": {
+      "A": {
+        "queries": [
+          {
+            "query": "Remove substring 'Name:' from column 'country' of df",
+            "user": "u0"
+          }
+        ],
+        "ios": [
+          {
+            "inputs": [
+              "pd.DataFrame({'country': {0: 'Name:US', 1: 'FR', 2: 'Name:DE', 3: 'CN'}, 'city': {0: 'Cal', 1: 'PAR', 2: 'BER', 3: 'SHG'}})"
+            ],
+            "output": "pd.DataFrame({'country': {0: 'US', 1: 'FR', 2: 'DE', 3: 'CN'}, 'city': {0: 'Cal', 1: 'PAR', 2: 'BER', 3: 'SHG'}})",
+            "invars": [
+              "df"
+            ],
+            "outvar": "df"
+          }
+        ],
+        "solutions": [
+          "df['country'] = df['country'].str.replace('Name:','')\n"
+        ]
+      }
+    }
+  },
+  "57": {
+    "sets": {
+      "A": {
+        "queries": [
+          {
+            "query": "Pick out the rows of df where 'a' not eq 4 and 'b' gt 3 and assign to dfout",
+            "user": "u0"
+          }
+        ],
+        "ios": [
+          {
+            "inputs": [
+              "pd.DataFrame({'a': {0: 4, 1: 3, 2: 3, 3: 5, 4: 2, 5: 5, 6: 1, 7: 4, 8: 0, 9: 0}, 'b': {0: 4, 1: 3, 2: 4, 3: 3, 4: 2, 5: 7, 6: 9, 7: 6, 8: 3, 9: 0}})"
+            ],
+            "output": "pd.DataFrame({'a': {2: 3, 5: 5, 6: 1}, 'b': {2: 4, 5: 7, 6: 9}})",
+            "invars": [
+              "df"
+            ],
+            "outvar": "dfout"
+          }
+        ],
+        "solutions": [
+          "dfout = df[(df.a!=4) & (df.b>3)]\n"
+        ]
+      }
+    }
+  },
+  "58": {
+    "sets": {
+      "A": {
+        "queries": [
+          {
+            "query": "Update column 'present' to True in dataframe df where string 'dog' occurs inside column 'pet'",
+            "user": "u0"
+          }
+        ],
+        "ios": [
+          {
+            "inputs": [
+              "pd.DataFrame({'pet': {0: 'dog-a', 1: 'dog-b', 2: 'cat', 3: 'goldfish', 4: 'c-dog', 5: 'hamster'}, 'present': {0: False, 1: False, 2: False, 3: False, 4: False, 5: False}})"
+            ],
+            "output": "pd.DataFrame({'pet': {0: 'dog-a', 1: 'dog-b', 2: 'cat', 3: 'goldfish', 4: 'c-dog', 5: 'hamster'}, 'present': {0: True, 1: True, 2: False, 3: False, 4: True, 5: False}})",
+            "invars": [
+              "df"
+            ],
+            "outvar": "df"
+          }
+        ],
+        "solutions": [
+          "df.loc[df.pet.str.contains('dog'),'present'] = True\n"
+        ]
+      }
+    }
+  },
+  "59": {
+    "sets": {
+      "A": {
+        "queries": [
+          {
+            "query": "Increase 'count' column by 1 when column 'pet' contains substring 'dog' or 'cat'",
+            "user": "u0"
+          }
+        ],
+        "ios": [
+          {
+            "inputs": [
+              "pd.DataFrame({'pet': {0: 'dog-a', 1: 'dog-b', 2: 'cat', 3: 'goldfish', 4: 'c-dog', 5: 'hamster'}, 'count': {0: 12, 1: 15, 2: 4, 3: 4, 4: 15, 5: 2}})"
+            ],
+            "output": "pd.DataFrame({'pet': {0: 'dog-a', 1: 'dog-b', 2: 'cat', 3: 'goldfish', 4: 'c-dog', 5: 'hamster'}, 'count': {0: 13, 1: 16, 2: 5, 3: 4, 4: 16, 5: 2}})",
+            "invars": [
+              "df"
+            ],
+            "outvar": "df"
+          }
+        ],
+        "solutions": [
+          "df.loc[df.pet.str.contains('dog|cat'),'count'] += 1\n"
+        ]
+      }
+    }
+  },
+  "60": {
+    "sets": {
+      "A": {
+        "queries": [
+          {
+            "query": "For the series data with multiple indices, create dataframe df with columns as the outermost level of index",
+            "user": "u0"
+          }
+        ],
+        "ios": [
+          {
+            "inputs": [
+              "pd.Series([1, 2, 3, 4])"
+            ],
+            "output": "pd.DataFrame({'one': {'a': 1, 'b': 2}, 'two': {'a': 3, 'b': 4}})",
+            "invars": [
+              "data"
+            ],
+            "outvar": "out"
+          }
+        ],
+        "solutions": [
+          "out = data.unstack(level=0)\n"
+        ]
+      }
+    }
+  },
+  "61": {
+    "sets": {
+      "A": {
+        "queries": [
+          {
+            "query": "For df with multiindex columns, remove column 'outer_col' from df",
+            "user": "u0"
+          }
+        ],
+        "ios": [
+          {
+            "inputs": [
+              "_df = pd.DataFrame({('c', 'e'): {(1, 2): 3, (5, 6): 7, (9, 10): 11}, ('d', 'f'): {(1, 2): 4, (5, 6): 8, (9, 10): 12}})\n_df.columns.names = ['outer_col', 'inner_col']\n_df.index.names = ['a', 'b']\n_df"
+            ],
+            "output": "_df = pd.DataFrame({'e': {(1, 2): 3, (5, 6): 7, (9, 10): 11}, 'f': {(1, 2): 4, (5, 6): 8, (9, 10): 12}})\n_df.columns.names = ['inner_col']\n_df.index.names = ['a', 'b']\n_df",
+            "invars": [
+              "df"
+            ],
+            "outvar": "dfout"
+          }
+        ],
+        "solutions": [
+          "dfout = df.droplevel('outer_col', axis=1)\n"
+        ]
+      }
+    }
+  },
+  "62": {
+    "sets": {
+      "A": {
+        "queries": [
+          {
+            "query": "compute number of times 'mouse' is present in dataframe df",
+            "user": "u0"
+          }
+        ],
+        "ios": [
+          {
+            "inputs": [
+              "pd.DataFrame({'pet1': {0: 'mouse', 1: 'mouse', 2: 'cat', 3: 'goldfish', 4: 'bad-mouse', 5: 'hamster', 6: 'lion', 7: 'tiger-mouse', 8: 'mouse'}, 'pet2': {0: 12, 1: 'mouse', 2: 'dog', 3: 'mouse', 4: 'snake', 5: 'mouse', 6: 'tiger', 7: 'mouse', 8: 'mouse'}})"
+            ],
+            "output": "np.int64(8)",
+            "invars": [
+              "df"
+            ],
+            "outvar": "out"
+          }
+        ],
+        "solutions": [
+          "out = (df=='mouse').sum().sum()\n"
+        ]
+      }
+    }
+  },
+  "63": {
+    "sets": {
+      "A": {
+        "queries": [
+          {
+            "query": "compute number rows in which 'mouse' is present in dataframe df",
+            "user": "u0"
+          }
+        ],
+        "ios": [
+          {
+            "inputs": [
+              "pd.DataFrame({'pet1': {0: 'mouse', 1: 'mouse', 2: 'cat', 3: 'goldfish', 4: 'bad-mouse', 5: 'hamster', 6: 'lion', 7: 'tiger-mouse', 8: 'mouse'}, 'pet2': {0: 12, 1: 'mouse', 2: 'dog', 3: 'mouse', 4: 'snake', 5: 'mouse', 6: 'tiger', 7: 'mouse', 8: 'mouse'}})"
+            ],
+            "output": "np.int64(6)",
+            "invars": [
+              "df"
+            ],
+            "outvar": "out"
+          }
+        ],
+        "solutions": [
+          "out = (df=='mouse').any(1).sum()\n"
+        ]
+      }
+    }
+  },
+  "64": {
+    "sets": {
+      "A": {
+        "queries": [
+          {
+            "query": "find number of elements in column 'phone' of df which are comprised totally of digits",
+            "user": "u0"
+          }
+        ],
+        "ios": [
+          {
+            "inputs": [
+              "pd.DataFrame({'phone': {0: '911', 1: '888', 2: '1-2-3', 3: '+00', 4: 'abc', 5: '334', 6: '00000', 7: '9/9/9', 8: '12/12/2012'}})"
+            ],
+            "output": "np.int64(4)",
+            "invars": [
+              "df"
+            ],
+            "outvar": "out"
+          }
+        ],
+        "solutions": [
+          "out = df['phone'].str.isdigit().sum()\n"
+        ]
+      }
+    }
+  },
+  "65": {
+    "sets": {
+      "A": {
+        "queries": [
+          {
+            "query": "Select the rows of df where column 'X' lies in integers between inclusive 4-10",
+            "user": "u0"
+          }
+        ],
+        "ios": [
+          {
+            "inputs": [
+              "pd.DataFrame({'X': {0: 2.0, 1: 5.0, 2: 5.5, 3: 8.0, 4: 16.0, 5: 12.0, 6: 10.0, 7: 11.0, 8: 4.0, 9: 21.0, 10: 20.0, 11: 4.0, 12: 14.0}, 'Y': {0: 5, 1: 7, 2: 4, 3: 2, 4: 7, 5: 12, 6: 0, 7: 1, 8: 4, 9: 2, 10: 3, 11: 10, 12: 3}})"
+            ],
+            "output": "pd.DataFrame({'X': {1: 5.0, 3: 8.0, 6: 10.0, 8: 4.0, 11: 4.0}, 'Y': {1: 7, 3: 2, 6: 0, 8: 4, 11: 10}})",
+            "invars": [
+              "df",
+              "list",
+              "range"
+            ],
+            "outvar": "out"
+          },
+          {
+            "inputs": [
+              "pd.DataFrame({'X': {0: 2.0, 1: 5.0, 2: 5.5, 3: 8.0, 4: 20.0, 5: 4.0, 6: 14.0}, 'Z': {0: 5, 1: 7, 2: 4, 3: 2, 4: 3, 5: 10, 6: 3}})"
+            ],
+            "output": "pd.DataFrame({'X': {0: 5, 1: 8, 2: 4}, 'Z': {0: 7, 1: 2, 2: 10}})",
+            "invars": [
+              "df",
+              "list",
+              "range"
+            ],
+            "outvar": "out"
+          }
+        ],
+        "solutions": [
+          "out = df[df['X'].isin(list(range(4,11)))]\n"
+        ]
+      }
+    }
+  },
+  "66": {
+    "sets": {
+      "A": {
+        "queries": [
+          {
+            "query": "Select the rows of df where column 'Y' lies in integers between inclusive 4-10 or 14-20",
+            "user": "u0"
+          }
+        ],
+        "ios": [
+          {
+            "inputs": [
+              "pd.DataFrame({'Y': {0: 2.0, 1: 5.0, 2: 5.5, 3: 8.0, 4: 16.0, 5: 12.0, 6: 10.0, 7: 11.0, 8: 4.0, 9: 21.0, 10: 20.0, 11: 10.0, 12: 14.0}, 'Z': {0: 5, 1: 7, 2: 4, 3: 2, 4: 7, 5: 12, 6: 0, 7: 1, 8: 4, 9: 2, 10: 3, 11: 10, 12: 3}})"
+            ],
+            "output": "pd.DataFrame({'Y': {1: 5.0, 3: 8.0, 4: 16.0, 6: 10.0, 8: 4.0, 10: 20.0, 11: 10.0, 12: 14.0}, 'Z': {1: 7, 3: 2, 4: 7, 6: 0, 8: 4, 10: 3, 11: 10, 12: 3}})",
+            "invars": [
+              "df",
+              "list",
+              "range"
+            ],
+            "outvar": "out"
+          },
+          {
+            "inputs": [
+              "pd.DataFrame({'Y': {0: 2.0, 1: 5.0, 2: 5.5, 3: 8.0, 4: 20.0, 5: 4.0, 6: 14.0}, 'X': {0: 5, 1: 7, 2: 4, 3: 2, 4: 3, 5: 10, 6: 3}})"
+            ],
+            "output": "pd.DataFrame({'Y': {0: 5, 1: 8, 2: 20, 3: 4, 4: 14}, 'X': {0: 7, 1: 2, 2: 3, 3: 10, 4: 3}})",
+            "invars": [
+              "df",
+              "list",
+              "range"
+            ],
+            "outvar": "out"
+          }
+        ],
+        "solutions": [
+          "out = df[df['Y'].isin(list(range(4,11))+list(range(14,21)))]\n"
+        ]
+      }
+    }
+  },
+  "67": {
+    "sets": {
+      "A": {
+        "queries": [
+          {
+            "query": "Change the type of column 'colA' of df to 'float32'",
+            "user": "u0"
+          }
+        ],
+        "ios": [
+          {
+            "inputs": [
+              "pd.DataFrame({'colA': {0: 2, 1: 5, 2: 8, 3: 16, 4: 12, 5: 10, 6: 11, 7: 4, 8: 21, 9: 20, 10: 10, 11: 14}, 'colB': {0: 5, 1: 7, 2: 2, 3: 7, 4: 12, 5: 0, 6: 1, 7: 4, 8: 2, 9: 3, 10: 10, 11: 3}})"
+            ],
+            "output": "pd.DataFrame({'colA': {0: 2.0, 1: 5.0, 2: 8.0, 3: 16.0, 4: 12.0, 5: 10.0, 6: 11.0, 7: 4.0, 8: 21.0, 9: 20.0, 10: 10.0, 11: 14.0}, 'colB': {0: 5, 1: 7, 2: 2, 3: 7, 4: 12, 5: 0, 6: 1, 7: 4, 8: 2, 9: 3, 10: 10, 11: 3}})",
+            "invars": [
+              "df"
+            ],
+            "outvar": "dfout"
+          }
+        ],
+        "solutions": [
+          "dfout = df.astype({'colA' : 'float32'})\n"
+        ]
+      }
+    }
+  }
+}
