@@ -17,6 +17,9 @@ For both these jsons we follow the structure as described below.
         + corresponding names for inputs and outputs
     - one or more correct solutions
 
+## Privacy
+Privacy & Cookies: https://go.microsoft.com/fwlink/?LinkId=521839
+
 ## Contributing
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
