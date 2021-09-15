@@ -1,4 +1,4 @@
-This zip file contains the two datasets described in our paper -- 
+The benchmarks folder contains the two datasets described in our paper (link here) -- 
 
 1.) PandasEval1 - This dataset was collected by authors of the paper and consists of 68 entries  
 2.) PandasEval2 - This dataset was collected in the form of a hackathon user study across two sessions differentiating tasks. Within each session we also have multiple sets with minor variations in tasks such as scalar and constant differences. Some tasks might be semantically different
