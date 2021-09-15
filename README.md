@@ -1,14 +1,21 @@
-# Project
+This zip file contains the two datasets described in our paper -- 
 
-> This repo has been populated by an initial template to help get you started. Please
-> make sure to update the content to build a great experience for community-building.
+1.) PandasEval1 - This dataset was collected by authors of the paper and consists of 68 entries  
+2.) PandasEval2 - This dataset was collected in the form of a hackathon user study across two sessions differentiating tasks. Within each session we also have multiple sets with minor variations in tasks such as scalar and constant differences. Some tasks might be semantically different
 
-As the maintainer of this project, please make a few updates:
+It has 21 unique tasks, and for every task at most 5 variations because of the sets and with all natural language variations comprises of 725 entries.
 
-- Improving this README.MD file to provide a great experience
-- Updating SUPPORT.MD with content about this project's support experience
-- Understanding the security reporting process in SECURITY.MD
-- Remove this section from the README
+For both these jsons we follow the structure as described below. 
+
+* The outer level contains key-value pairs with unique task id. 
+* For each task, we have key-value pairs for the sets in the task. 
+* For each set, we have 
+    - a list of queries along with user-ids who wrote those queries 
+    - one or more io examples. Each io example contains 
+        + code for inputs
+        + code for output 
+        + corresponding names for inputs and outputs
+    - one or more correct solutions
 
 ## Contributing
 
