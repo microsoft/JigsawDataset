@@ -1,10 +1,9 @@
 # Jigsaw Datasets
-The datasets folder contains the two datasets described in our paper -
+The datasets folder contains the two datasets described in our [paper](https://arxiv.org/abs/2112.02969) -
 
 1.) PandasEval1 - This dataset was collected by authors of the paper and consists of 68 entries  
-2.) PandasEval2 - This dataset was collected in the form of a hackathon user study across two sessions differentiating tasks. Within each session we also have multiple sets with minor variations in tasks such as scalar and constant differences. Some tasks might be semantically different
 
-It has 21 unique tasks, and for every task at most 5 variations because of the sets and with all natural language variations comprises of 725 entries.
+2.) PandasEval2 - This dataset was collected in the form of a hackathon user study across two sessions differentiating tasks. Each task contains multiple sets with minor variations such as scalar/constant differences. Some tasks might have semantically different sets. It comprises of 21 unique tasks, and for every task at most 5 variations/sets. For each set there are multiple natural language variations leading to a total of 725 entries.
 
 Both of these jsons follow the structure as described below. 
 
@@ -18,7 +17,7 @@ Both of these jsons follow the structure as described below.
         + corresponding names for inputs and outputs
     - one or more correct solutions
 
-In case you use these datasets please cite our work as
+In case you find this work useful, please cite it as
 ```
 @inproceedings{Jigsaw,
  author = {Jain, Naman and Vaidyanath, Skanda and Iyer, Arun and Natarajan, Nagarajan and Parthasarathy, Suresh and Rajamani, Sriram and Sharma, Rahul},
