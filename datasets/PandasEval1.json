@@ -1539,7 +1539,7 @@
             "inputs": [
               "pd.DataFrame({'student': {0: 'alpha', 1: 'beta', 2: 'alpha', 3: 'beta', 4: 'omega', 5: 'alpha'}, 'score': {0: 12, 1: 16, 2: 9, 3: 7, 4: 14, 5: 19}, 'subject': {0: 'chem', 1: 'chem', 2: 'phy', 3: 'phy', 4: 'chem', 5: 'bio'}})"
             ],
-            "output": "_s = pd.Series([[12, 9, 19], [16, 7], [14]])\n_s.name = \"score\"\n_s.index.names = ['student']\n_s",
+            "output": "_s = pd.Series([[12, 9, 19], [16, 7], [14]], index=['alpha', 'beta', 'omega'])\n_s.name = \"score\"\n_s.index.names = ['student']\n_s",
             "invars": [
               "df",
               "list"
@@ -1567,7 +1567,7 @@
             "inputs": [
               "pd.DataFrame({'student': {0: 'alpha', 1: 'beta', 2: 'alpha', 3: 'beta', 4: 'omega', 5: 'alpha'}, 'score': {0: 12, 1: 16, 2: 9, 3: 7, 4: 14, 5: 19}, 'subject': {0: 'chem', 1: 'chem', 2: 'phy', 3: 'phy', 4: 'chem', 5: 'bio'}})"
             ],
-            "output": "_s = pd.Series([19, 16, 14])\n_s.name = \"score\"\n_s.index.names = ['student']\n_s",
+            "output": "_s = pd.Series([19, 16, 14], index=['alpha', 'beta', 'omega'])\n_s.name = \"score\"\n_s.index.names = ['student']\n_s",
             "invars": [
               "df"
             ],
