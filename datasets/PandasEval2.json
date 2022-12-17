@@ -39,7 +39,7 @@
           }
         ],
         "solutions": [
-          "dfout = dfin.rename({'a': 'Person Name', 'b': 'Credit'})"
+          "dfout = dfin.rename(columns={'a': 'Person Name', 'b': 'Credit'})"
         ]
       },
       "D": {
@@ -96,7 +96,7 @@
           }
         ],
         "solutions": [
-          "dfout = dfin.rename({'a': 'Person Name', 'b': 'Credit'})"
+          "dfout = dfin.rename(columns={'a': 'Person Name', 'b': 'Credit'})"
         ]
       },
       "B": {
@@ -129,7 +129,7 @@
           }
         ],
         "solutions": [
-          "dfout = dfin.rename({'a': 'Person Name', 'b': 'Credit'})"
+          "dfout = dfin.rename(columns={'a': 'Person Name', 'b': 'Credit'})"
         ]
       },
       "C": {
@@ -170,7 +170,7 @@
           }
         ],
         "solutions": [
-          "dfout = dfin.rename({'a': 'Person Name', 'b': 'Credit'})"
+          "dfout = dfin.rename(columns={'a': 'Person Name', 'b': 'Credit'})"
         ]
       },
       "E": {
@@ -211,7 +211,7 @@
           }
         ],
         "solutions": [
-          "dfout = dfin.rename({'a': 'Person Name', 'b': 'Credit'})"
+          "dfout = dfin.rename(columns={'a': 'Person Name', 'b': 'Credit'})"
         ]
       }
     }
@@ -260,8 +260,8 @@
           }
         ],
         "solutions": [
-          "dfout = dfin.loc[dfin[col]%3]==0",
-          "dfout = dfin[dfin[col]%3]==0"
+          "dfout = dfin.loc[dfin['value1']%3==0]",
+          "dfout = dfin[dfin['value1']%3==0]"
         ]
       },
       "D": {
@@ -322,8 +322,8 @@
           }
         ],
         "solutions": [
-          "dfout = dfin.loc[dfin[col]%4]==1",
-          "dfout = dfin[dfin[col]%4]==1"
+          "dfout = dfin.loc[dfin['A']%4==1]",
+          "dfout = dfin[dfin['A']%4==1]"
         ]
       },
       "B": {
@@ -360,8 +360,8 @@
           }
         ],
         "solutions": [
-          "dfout = dfin.loc[dfin[col]%2]==0",
-          "dfout = dfin[dfin[col]%2]==0"
+          "dfout = dfin.loc[dfin['column1']%2==0]",
+          "dfout = dfin[dfin['column1']%2==0]"
         ]
       },
       "C": {
@@ -414,8 +414,8 @@
           }
         ],
         "solutions": [
-          "dfout = dfin.loc[dfin[col]%5]==0",
-          "dfout = dfin[dfin[col]%5]==0"
+          "dfout = dfin.loc[dfin['colA']%5==0]",
+          "dfout = dfin[dfin['colA']%5==0]"
         ]
       },
       "E": {
@@ -476,8 +476,8 @@
           }
         ],
         "solutions": [
-          "dfout = dfin.loc[dfin[col]%4]==1",
-          "dfout = dfin[dfin[col]%4]==1"
+          "dfout = dfin.loc[dfin['A']%4==1]",
+          "dfout = dfin[dfin['A']%4==1]"
         ]
       }
     }
@@ -3598,7 +3598,7 @@
         ],
         "solutions": [
           "dfin['target'] = pd.Categorical(dfin['target']).codes",
-          "dfin['target'] = dfin['target'].apply(pd.Categorical)",
+          "dfin['target'] = dfin['target'].astype('category').values.codes",
           "dfin['target'] = pd.factorize(dfin['target'])[0]",
           "dfin['target'] = dfin['target'].factorize()[0]"
         ]
@@ -3656,7 +3656,7 @@
         ],
         "solutions": [
           "dfin['goldLabel'] = pd.Categorical(dfin['goldLabel']).codes",
-          "dfin['goldLabel'] = dfin['goldLabel'].apply(pd.Categorical)",
+          "dfin['goldLabel'] = dfin['goldLabel'].astype('category').values.codes",
           "dfin['goldLabel'] = pd.factorize(dfin['goldLabel'])[0]",
           "dfin['goldLabel'] = dfin['goldLabel'].factorize()[0]"
         ]
@@ -3698,7 +3698,7 @@
         ],
         "solutions": [
           "dfin['labels'] = pd.Categorical(dfin['labels']).codes",
-          "dfin['labels'] = dfin['labels'].apply(pd.Categorical)",
+          "dfin['labels'] = dfin['labels'].astype('category').values.codes",
           "dfin['labels'] = pd.factorize(dfin['labels'])[0]",
           "dfin['labels'] = dfin['labels'].factorize()[0]"
         ]
@@ -3772,7 +3772,7 @@
         ],
         "solutions": [
           "dfin['GoldTarget'] = pd.Categorical(dfin['GoldTarget']).codes",
-          "dfin['GoldTarget'] = dfin['GoldTarget'].apply(pd.Categorical)",
+          "dfin['GoldTarget'] = dfin['GoldTarget'].astype('category').values.codes",
           "dfin['GoldTarget'] = pd.factorize(dfin['GoldTarget'])[0]",
           "dfin['GoldTarget'] = dfin['GoldTarget'].factorize()[0]"
         ]
@@ -3818,7 +3818,7 @@
         ],
         "solutions": [
           "dfin['Label'] = pd.Categorical(dfin['Label']).codes",
-          "dfin['Label'] = dfin['Label'].apply(pd.Categorical)",
+          "dfin['Label'] = dfin['Label'].astype('category').values.codes",
           "dfin['Label'] = pd.factorize(dfin['Label'])[0]",
           "dfin['Label'] = dfin['Label'].factorize()[0]"
         ]
@@ -4286,7 +4286,7 @@
           }
         ],
         "solutions": [
-          "dfout = dfin.drop_duplicates(subset=['f2'], keep=last)"
+          "dfout = dfin.drop_duplicates(subset=['f2'], keep='last')"
         ]
       },
       "A": {
@@ -4319,7 +4319,7 @@
           }
         ],
         "solutions": [
-          "dfout = dfin.drop_duplicates(subset=['feat2'], keep=last)"
+          "dfout = dfin.drop_duplicates(subset=['feat2'], keep='last')"
         ]
       },
       "E": {
@@ -4472,15 +4472,15 @@
           }
         ],
         "solutions": [
-          "dfin['f2'] = dfout['f2'].clip(lower=10, upper=None)",
-          "dfin['f2'] = dfout['f2'].clip(lower=10)",
+          "dfin['f2'] = dfin['f2'].clip(lower=10, upper=None)",
+          "dfin['f2'] = dfin['f2'].clip(lower=10)",
           "dfin.loc[dfin['f2']<10, 'f2'] = 10",
           "dfin['f2'].loc[dfin['f2']<10] = 10",
           "dfin['f2'][dfin['f2']<10] = 10",
-          "dfin['f2'] = dfout['f2'].map(lambda x : x if x > 10 else 10)",
-          "dfin['f2'] = dfout['f2'].map(lambda x : x if x >= 10 else 10)",
-          "dfin['f2'] = dfout['f2'].map(lambda x : 10 if x < 10 else x)",
-          "dfin['f2'] = dfout['f2'].map(lambda x : 10 if x <= 10 else x)"
+          "dfin['f2'] = dfin['f2'].map(lambda x : x if x > 10 else 10)",
+          "dfin['f2'] = dfin['f2'].map(lambda x : x if x >= 10 else 10)",
+          "dfin['f2'] = dfin['f2'].map(lambda x : 10 if x < 10 else x)",
+          "dfin['f2'] = dfin['f2'].map(lambda x : 10 if x <= 10 else x)"
         ]
       },
       "C": {
@@ -4551,15 +4551,15 @@
           }
         ],
         "solutions": [
-          "dfin['ftr2'] = dfout['ftr2'].clip(lower=5, upper=None)",
-          "dfin['ftr2'] = dfout['ftr2'].clip(lower=5)",
+          "dfin['ftr2'] = dfin['ftr2'].clip(lower=5, upper=None)",
+          "dfin['ftr2'] = dfin['ftr2'].clip(lower=5)",
           "dfin.loc[dfin['ftr2']<5, 'ftr2'] = 5",
           "dfin['ftr2'].loc[dfin['ftr2']<5] = 5",
           "dfin['ftr2'][dfin['ftr2']<5] = 5",
-          "dfin['ftr2'] = dfout['ftr2'].map(lambda x : x if x > 5 else 5)",
-          "dfin['ftr2'] = dfout['ftr2'].map(lambda x : x if x >= 5 else 5)",
-          "dfin['ftr2'] = dfout['ftr2'].map(lambda x : 5 if x < 5 else x)",
-          "dfin['ftr2'] = dfout['ftr2'].map(lambda x : 5 if x <= 5 else x)"
+          "dfin['ftr2'] = dfin['ftr2'].map(lambda x : x if x > 5 else 5)",
+          "dfin['ftr2'] = dfin['ftr2'].map(lambda x : x if x >= 5 else 5)",
+          "dfin['ftr2'] = dfin['ftr2'].map(lambda x : 5 if x < 5 else x)",
+          "dfin['ftr2'] = dfin['ftr2'].map(lambda x : 5 if x <= 5 else x)"
         ]
       },
       "A": {
@@ -4606,15 +4606,15 @@
           }
         ],
         "solutions": [
-          "dfin['feat2'] = dfout['feat2'].clip(lower=None, upper=10)",
-          "dfin['feat2'] = dfout['feat2'].clip(upper=10)",
+          "dfin['feat2'] = dfin['feat2'].clip(lower=None, upper=10)",
+          "dfin['feat2'] = dfin['feat2'].clip(upper=10)",
           "dfin.loc[dfin['feat2']>10, 'feat2'] = 10",
           "dfin['feat2'].loc[dfin['feat2']>10] = 10",
           "dfin['feat2'][dfin['feat2']>10] = 10",
-          "dfin['feat2'] = dfout['feat2'].map(lambda x : x if x < 10 else 10)",
-          "dfin['feat2'] = dfout['feat2'].map(lambda x : x if x <= 10 else 10)",
-          "dfin['feat2'] = dfout['feat2'].map(lambda x : 10 if x > 10 else x)",
-          "dfin['feat2'] = dfout['feat2'].map(lambda x : 10 if x >= 10 else x)"
+          "dfin['feat2'] = dfin['feat2'].map(lambda x : x if x < 10 else 10)",
+          "dfin['feat2'] = dfin['feat2'].map(lambda x : x if x <= 10 else 10)",
+          "dfin['feat2'] = dfin['feat2'].map(lambda x : 10 if x > 10 else x)",
+          "dfin['feat2'] = dfin['feat2'].map(lambda x : 10 if x >= 10 else x)"
         ]
       },
       "D": {
@@ -4685,15 +4685,15 @@
           }
         ],
         "solutions": [
-          "dfin['inp2'] = dfout['inp2'].clip(lower=0, upper=None)",
-          "dfin['inp2'] = dfout['inp2'].clip(lower=0)",
+          "dfin['inp2'] = dfin['inp2'].clip(lower=0, upper=None)",
+          "dfin['inp2'] = dfin['inp2'].clip(lower=0)",
           "dfin.loc[dfin['inp2']<0, 'inp2'] = 0",
           "dfin['inp2'].loc[dfin['inp2']<0] = 0",
           "dfin['inp2'][dfin['inp2']<0] = 0",
-          "dfin['inp2'] = dfout['inp2'].map(lambda x : x if x > 0 else 0)",
-          "dfin['inp2'] = dfout['inp2'].map(lambda x : x if x >= 0 else 0)",
-          "dfin['inp2'] = dfout['inp2'].map(lambda x : 0 if x < 0 else x)",
-          "dfin['inp2'] = dfout['inp2'].map(lambda x : 0 if x <= 0 else x)"
+          "dfin['inp2'] = dfin['inp2'].map(lambda x : x if x > 0 else 0)",
+          "dfin['inp2'] = dfin['inp2'].map(lambda x : x if x >= 0 else 0)",
+          "dfin['inp2'] = dfin['inp2'].map(lambda x : 0 if x < 0 else x)",
+          "dfin['inp2'] = dfin['inp2'].map(lambda x : 0 if x <= 0 else x)"
         ]
       },
       "E": {
@@ -4812,15 +4812,15 @@
           }
         ],
         "solutions": [
-          "dfin['inputB'] = dfout['inputB'].clip(lower=None, upper=0)",
-          "dfin['inputB'] = dfout['inputB'].clip(upper=0)",
+          "dfin['inputB'] = dfin['inputB'].clip(lower=None, upper=0)",
+          "dfin['inputB'] = dfin['inputB'].clip(upper=0)",
           "dfin.loc[dfin['inputB']>0, 'inputB'] = 0",
           "dfin['inputB'].loc[dfin['inputB']>0] = 0",
           "dfin['inputB'][dfin['inputB']>0] = 0",
-          "dfin['inputB'] = dfout['inputB'].map(lambda x : x if x < 0 else 0)",
-          "dfin['inputB'] = dfout['inputB'].map(lambda x : x if x <= 0 else 0)",
-          "dfin['inputB'] = dfout['inputB'].map(lambda x : 0 if x > 0 else x)",
-          "dfin['inputB'] = dfout['inputB'].map(lambda x : 0 if x >= 0 else x)"
+          "dfin['inputB'] = dfin['inputB'].map(lambda x : x if x < 0 else 0)",
+          "dfin['inputB'] = dfin['inputB'].map(lambda x : x if x <= 0 else 0)",
+          "dfin['inputB'] = dfin['inputB'].map(lambda x : 0 if x > 0 else x)",
+          "dfin['inputB'] = dfin['inputB'].map(lambda x : 0 if x >= 0 else x)"
         ]
       }
     }
@@ -5401,9 +5401,9 @@
           }
         ],
         "solutions": [
-          "dfin['Pred'] = dfin.iloc[:3].idxmax(1)",
+          "dfin['Pred'] = dfin.iloc[:,:3].idxmax(1)",
           "dfin['Pred'] = dfin[[0,1,2]].idxmax(1)",
-          "dfin['Pred'] = dfin.loc[[0,1,2]].idxmax(1)"
+          "dfin['Pred'] = dfin.loc[:,[0,1,2]].idxmax(1)"
         ]
       },
       "C": {
@@ -5426,9 +5426,9 @@
           }
         ],
         "solutions": [
-          "dfin['output'] = dfin.iloc[:3].idxmax(1)",
+          "dfin['output'] = dfin.iloc[:,:3].idxmax(1)",
           "dfin['output'] = dfin[[0,1,2]].idxmax(1)",
-          "dfin['output'] = dfin.loc[[0,1,2]].idxmax(1)"
+          "dfin['output'] = dfin.loc[:,[0,1,2]].idxmax(1)"
         ]
       },
       "D": {
@@ -5515,9 +5515,9 @@
           }
         ],
         "solutions": [
-          "dfin['prediction'] = dfin.iloc[:5].idxmax(1)",
-          "dfin['prediction'] = dfin[[0,1,2]].idxmax(1)",
-          "dfin['prediction'] = dfin.loc[[0,1,2]].idxmax(1)"
+          "dfin['prediction'] = dfin.iloc[:,:5].idxmax(1)",
+          "dfin['prediction'] = dfin[[0,1,2,3,4]].idxmax(1)",
+          "dfin['prediction'] = dfin.loc[:,[0,1,2,3,4]].idxmax(1)"
         ]
       },
       "A": {
@@ -5556,9 +5556,9 @@
           }
         ],
         "solutions": [
-          "dfin['pred'] = dfin.iloc[:3].idxmax(1)",
+          "dfin['pred'] = dfin.iloc[:,:3].idxmax(1)",
           "dfin['pred'] = dfin[[0,1,2]].idxmax(1)",
-          "dfin['pred'] = dfin.loc[[0,1,2]].idxmax(1)"
+          "dfin['pred'] = dfin.loc[:,[0,1,2]].idxmax(1)"
         ]
       },
       "E": {
@@ -5585,9 +5585,9 @@
           }
         ],
         "solutions": [
-          "dfin['OurPred'] = dfin.iloc[:5].idxmax(1)",
-          "dfin['OurPred'] = dfin[[0,1,2]].idxmax(1)",
-          "dfin['OurPred'] = dfin.loc[[0,1,2]].idxmax(1)"
+          "dfin['OurPred'] = dfin.iloc[:,:5].idxmax(1)",
+          "dfin['OurPred'] = dfin[[0,1,2,3,4]].idxmax(1)",
+          "dfin['OurPred'] = dfin.loc[:,[0,1,2,3,4]].idxmax(1)"
         ]
       }
     }
